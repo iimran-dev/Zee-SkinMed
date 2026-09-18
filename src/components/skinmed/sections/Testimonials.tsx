@@ -29,7 +29,7 @@ export function Testimonials() {
           </div>
           <div className="md:col-span-5">
             <Reveal delay={0.16}>
-              <p className="text-sm leading-relaxed text-skinmed-ivory/70 md:text-right">
+              <p className="text-sm leading-relaxed text-skinmed-ivory/85 font-medium md:text-right">
                 Real stories. Real confidence. Patient identities are kept private — these
                 are their journeys.
               </p>
@@ -69,21 +69,21 @@ export function Testimonials() {
                       <Star key={i} className="h-3 w-3 fill-skinmed-gold text-skinmed-gold" />
                     ))}
                   </div>
-                  <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.22em] text-skinmed-ivory/90 bg-skinmed-charcoal/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                  <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.22em] text-skinmed-ivory font-semibold bg-skinmed-charcoal/80 backdrop-blur-sm px-2.5 py-1 rounded-full border border-skinmed-gold/30">
                     {t.treatment}
                   </div>
                 </div>
 
                 {/* Body */}
                 <div className="p-6">
-                  <blockquote className="font-serif text-lg md:text-xl leading-snug text-skinmed-ivory">
+                  <blockquote className="font-serif text-lg md:text-xl font-semibold leading-snug text-skinmed-ivory">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-4 flex items-center gap-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-skinmed-gold/15 text-skinmed-gold font-serif text-sm">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-skinmed-gold/20 text-skinmed-gold font-serif font-bold text-sm">
                       {t.initials}
                     </span>
-                    <span className="text-xs text-skinmed-ivory/80">{t.name}</span>
+                    <span className="text-xs text-skinmed-ivory/90 font-medium">{t.name}</span>
                   </figcaption>
                 </div>
               </motion.article>
@@ -95,8 +95,8 @@ export function Testimonials() {
         <Reveal className="mt-14 grid grid-cols-3 gap-4 border-t border-skinmed-gold/20 pt-10">
           {TRUST_STATS_LOCAL.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="font-serif text-3xl md:text-4xl text-skinmed-gold">{s.value}</div>
-              <div className="mt-2 text-[10px] uppercase tracking-[0.22em] text-skinmed-ivory/60">
+              <div className="font-serif text-3xl md:text-4xl font-semibold text-skinmed-gold">{s.value}</div>
+              <div className="mt-2 text-[11px] uppercase tracking-[0.22em] text-skinmed-ivory/80 font-semibold">
                 {s.label}
               </div>
             </div>

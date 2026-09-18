@@ -71,13 +71,13 @@ export function AdvancedCare() {
               <Eyebrow className="mb-5">Science Meets Beauty</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="section-heading text-[2.5rem] md:text-[3.75rem] leading-[1.02] text-skinmed-ivory">
+              <h2 className="section-heading text-[2.5rem] md:text-[3.75rem] font-semibold leading-[1.02] text-skinmed-ivory">
                 Advanced Care.
                 <span className="block italic text-skinmed-gold">Real Results.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-skinmed-ivory/80">
+              <p className="mt-6 max-w-lg text-[15px] sm:text-base leading-relaxed text-skinmed-ivory/90 font-medium">
                 Modern technology. Personalized treatments. A more confident you —
                 grounded in safety, proven protocols and an obsession with natural outcomes.
               </p>
@@ -89,11 +89,11 @@ export function AdvancedCare() {
                   <div className="group relative rounded-xl border-l-2 border-skinmed-gold bg-skinmed-charcoal-soft/40 px-5 py-5 transition-colors duration-500 hover:bg-skinmed-charcoal-soft">
                     <div className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-skinmed-gold/60 text-skinmed-gold">
-                        <Check className="h-3 w-3" />
+                        <Check className="h-3 w-3 stroke-[2.5]" />
                       </span>
                       <div>
-                        <h3 className="text-sm font-medium text-skinmed-ivory">{f.title}</h3>
-                        <p className="mt-1.5 text-xs leading-relaxed text-skinmed-ivory/70">
+                        <h3 className="text-sm font-semibold text-skinmed-ivory">{f.title}</h3>
+                        <p className="mt-1.5 text-xs sm:text-[13px] leading-relaxed text-skinmed-ivory/80 font-medium">
                           {f.description}
                         </p>
                       </div>

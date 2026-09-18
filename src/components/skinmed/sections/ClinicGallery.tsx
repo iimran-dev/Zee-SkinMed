@@ -63,7 +63,7 @@ export function ClinicGallery() {
           </div>
           <div className="md:col-span-5">
             <Reveal delay={0.16}>
-              <p className="text-sm leading-relaxed text-skinmed-text-muted md:text-right">
+              <p className="text-sm leading-relaxed text-skinmed-text font-medium md:text-right">
                 Modern. Hygienic. Premium. — a clinic built around how care should feel.
               </p>
             </Reveal>
@@ -71,7 +71,7 @@ export function ClinicGallery() {
         </div>
 
         <RevealStagger
-          className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4 lg:auto-rows-[220px]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] md:auto-rows-[280px]"
           stagger={0.08}
         >
           {CLINIC_GALLERY_LOCAL.map((item) => (
@@ -99,11 +99,11 @@ function GalleryItem({ item, reduce }: { item: Item; reduce: boolean | null }) {
         sizes="(min-width: 1024px) 700px, (min-width: 768px) 50vw, 50vw"
         className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
       />
-      <figcaption className="absolute inset-0 flex flex-col items-start justify-end p-5 bg-gradient-to-t from-skinmed-charcoal/75 via-skinmed-charcoal/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100">
-        <span className="text-[9px] uppercase tracking-[0.22em] text-skinmed-gold">
+      <figcaption className="absolute inset-0 flex flex-col items-start justify-end p-5 bg-gradient-to-t from-skinmed-charcoal/85 via-skinmed-charcoal/20 to-transparent opacity-95 transition-opacity duration-500 group-hover:opacity-100">
+        <span className="text-[10px] uppercase tracking-[0.24em] text-skinmed-gold-light font-semibold">
           {item.sub}
         </span>
-        <span className="font-serif text-lg md:text-xl text-skinmed-ivory">
+        <span className="font-serif text-lg md:text-xl font-semibold text-skinmed-ivory mt-0.5">
           {item.label}
         </span>
       </figcaption>

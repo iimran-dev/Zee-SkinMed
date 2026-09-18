@@ -54,8 +54,8 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-skinmed-ivory/85 backdrop-blur-md border-b border-skinmed-line/70 shadow-[0_4px_24px_-12px_rgba(23,23,23,0.12)]"
-          : "bg-transparent"
+          ? "bg-skinmed-ivory/95 backdrop-blur-md border-b border-skinmed-line/80 shadow-[0_4px_24px_-12px_rgba(23,23,23,0.12)]"
+          : "bg-skinmed-ivory/80 backdrop-blur-md border-b border-skinmed-line/50 shadow-[0_2px_16px_-8px_rgba(23,23,23,0.06)]"
       }`}
     >
       <Container className="flex h-[72px] items-center justify-between gap-4 md:h-[80px]">
@@ -64,7 +64,7 @@ export function Navbar() {
           href="#home"
           onClick={(e) => handleNav(e, "#home")}
           aria-label="Dr Zee's SKINMED — Home"
-          className="shrink-0"
+          className="shrink-0 transition-opacity hover:opacity-90"
         >
           <Image
             src="/skinmed-logo.svg"
@@ -77,7 +77,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-8" aria-label="Primary">
           {NAV_LINKS.map((link) => {
             const active = activeId === link.href;
             return (
@@ -85,11 +85,13 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNav(e, link.href)}
-                className="group relative text-[11px] font-medium uppercase tracking-[0.18em] text-skinmed-charcoal/85 transition-colors hover:text-skinmed-charcoal"
+                className={`group relative text-xs font-semibold uppercase tracking-[0.16em] transition-colors py-1 ${
+                  active ? "text-skinmed-gold font-bold" : "text-skinmed-charcoal hover:text-skinmed-gold"
+                }`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-px bg-skinmed-gold transition-all duration-500 ${
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-skinmed-gold transition-all duration-500 ${
                     active ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
                   }`}
                 />
@@ -102,15 +104,15 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4">
           <a
             href={BRAND.phoneHref}
-            className="hidden md:inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-skinmed-charcoal/80 hover:text-skinmed-gold transition-colors"
+            className="hidden md:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-skinmed-charcoal hover:text-skinmed-gold transition-colors px-2 py-1"
           >
-            <Phone className="h-3.5 w-3.5 text-skinmed-gold" />
+            <Phone className="h-3.5 w-3.5 text-skinmed-gold stroke-[2.5]" />
             {BRAND.phoneDisplay}
           </a>
           <a
             href="#contact"
             onClick={(e) => handleNav(e, "#contact")}
-            className="btn-gold !px-5 !py-3 !text-[10px]"
+            className="btn-gold !px-5 !py-2.5 !text-xs !font-semibold tracking-wider"
           >
             Book Consultation
           </a>

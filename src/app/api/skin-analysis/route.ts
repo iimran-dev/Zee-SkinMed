@@ -117,6 +117,7 @@ Reply as STRICT JSON in this exact shape:
 Do not include markdown fences. If the image does not clearly show a face or skin, still return a kind summary and an empty concerns array.`;
 
     const response = await zai.chat.completions.createVision({
+      model: "glm-4v-plus",
       messages: [
         {
           role: "user",

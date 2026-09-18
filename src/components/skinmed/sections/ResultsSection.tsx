@@ -18,12 +18,12 @@ export function ResultsSection() {
               <Eyebrow className="mb-5">Real People</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="section-heading text-[2.25rem] md:text-[3rem] leading-[1.05] text-skinmed-charcoal">
+              <h2 className="section-heading text-[2.25rem] md:text-[3rem] font-semibold leading-[1.05] text-skinmed-charcoal">
                 Real Results
               </h2>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-5 max-w-xs text-sm leading-relaxed text-skinmed-text-muted">
+              <p className="mt-5 max-w-xs text-sm leading-relaxed text-skinmed-text font-medium">
                 Visible transformations. Trusted by thousands — every result is real,
                 considered and ethically shared.
               </p>

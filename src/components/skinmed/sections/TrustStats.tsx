@@ -73,7 +73,11 @@ export function TrustStats() {
           {TRUST_STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08} className="text-center">
               <div className="font-serif text-[2.75rem] md:text-[3.25rem] leading-none text-skinmed-charcoal">
-                <Counter to={s.value} decimals={s.decimals ?? 0} suffix={s.suffix} />
+                <Counter
+                  to={s.value}
+                  decimals={"decimals" in s ? (s as { decimals?: number }).decimals ?? 0 : 0}
+                  suffix={s.suffix}
+                />
               </div>
               <div className="mt-3 inline-block text-[10px] uppercase tracking-[0.22em] text-skinmed-text-muted">
                 <span className="block w-8 h-px bg-skinmed-gold mx-auto mb-3" />

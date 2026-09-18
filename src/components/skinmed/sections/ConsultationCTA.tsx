@@ -49,13 +49,13 @@ export function ConsultationCTA() {
             <Eyebrow className="mb-6">Begin Today</Eyebrow>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="section-heading text-[2.5rem] md:text-[4rem] leading-[1.02] text-skinmed-ivory">
+            <h2 className="section-heading text-[2.5rem] md:text-[4rem] font-semibold leading-[1.02] text-skinmed-ivory">
               Your Skin Transformation
               <span className="block italic text-skinmed-gold mt-1">Starts Today</span>
             </h2>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="mt-7 max-w-lg text-[15px] leading-relaxed text-skinmed-ivory/80">
+            <p className="mt-7 max-w-lg text-[15px] sm:text-base leading-relaxed text-skinmed-ivory font-medium">
               Book a consultation with {BRAND.doctorFull} and take the first step towards
               healthier, brighter skin — gently, ethically, expertly.
             </p>
@@ -84,9 +84,9 @@ export function ConsultationCTA() {
           <Reveal delay={0.32} className="mt-10">
             <ul className="flex flex-wrap gap-x-8 gap-y-3">
               {FINAL_CTA_BENEFITS.map((b) => (
-                <li key={b} className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-skinmed-ivory/85">
+                <li key={b} className="flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-skinmed-ivory font-semibold">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full border border-skinmed-gold/60 text-skinmed-gold">
-                    <Check className="h-3 w-3" />
+                    <Check className="h-3 w-3 stroke-[2.5]" />
                   </span>
                   {b}
                 </li>

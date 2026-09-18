@@ -12,13 +12,13 @@
   --color-skinmed-ivory: #F8F4EE;
   --color-skinmed-gold: #C9A55C;
   --color-skinmed-gold-light: #E5C988;
-  --color-skinmed-gold-dark: #A47E3B;
+  --color-skinmed-gold-dark: #8E6A27;
   --color-skinmed-charcoal: #171717;
   --color-skinmed-charcoal-soft: #1F1D1A;
   --color-skinmed-beige: #EFE7DB;
   --color-skinmed-white: #FFFFFF;
-  --color-skinmed-text: #3A3531;
-  --color-skinmed-text-muted: #7A7064;
+  --color-skinmed-text: #221F1C;
+  --color-skinmed-text-muted: #544E47;
   --color-skinmed-line: #E3D9C8;
   --color-skinmed-cream: #F1E9DC;
 
@@ -85,8 +85,9 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-skinmed-charcoal);
   }
 
   /* Custom scrollbar — premium feel */
@@ -129,10 +130,10 @@
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.32em;
+    font-weight: 600;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--color-skinmed-gold);
+    color: var(--color-skinmed-gold-dark);
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
@@ -140,24 +141,24 @@
   .eyebrow::before {
     content: "";
     width: 28px;
-    height: 1px;
-    background: var(--color-skinmed-gold);
-    opacity: 0.7;
+    height: 1.5px;
+    background: var(--color-skinmed-gold-dark);
+    opacity: 0.8;
   }
   .eyebrow-center::after {
     content: "";
     width: 28px;
-    height: 1px;
-    background: var(--color-skinmed-gold);
-    opacity: 0.7;
+    height: 1.5px;
+    background: var(--color-skinmed-gold-dark);
+    opacity: 0.8;
   }
 
   /* Section heading */
   .section-heading {
     font-family: var(--font-serif);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     color: var(--color-skinmed-charcoal);
   }
 
@@ -170,8 +171,8 @@
     padding: 0.875rem 1.75rem;
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-skinmed-charcoal);
     background: linear-gradient(135deg, var(--color-skinmed-gold-light) 0%, var(--color-skinmed-gold) 55%, var(--color-skinmed-gold-dark) 100%);
@@ -202,8 +203,8 @@
     padding: 0.875rem 1.75rem;
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-skinmed-ivory);
     background: var(--color-skinmed-charcoal);
@@ -222,8 +223,8 @@
     padding: 0.875rem 1.75rem;
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-skinmed-charcoal);
     background: transparent;
@@ -242,8 +243,8 @@
     padding: 0.875rem 1.75rem;
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-skinmed-ivory);
     background: transparent;

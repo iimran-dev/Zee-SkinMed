@@ -23,7 +23,7 @@ export function TreatmentSection() {
           </div>
           <div className="md:col-span-5">
             <Reveal delay={0.16}>
-              <p className="text-sm leading-relaxed text-skinmed-text-muted md:text-right">
+              <p className="text-sm leading-relaxed text-skinmed-text font-medium md:text-right">
                 Comprehensive solutions for your skin, hair and nail concerns — each protocol
                 tailored to your skin's history and your goals.
               </p>
@@ -94,10 +94,10 @@ function TreatmentCard({
 
       {/* Caption */}
       <div className="mt-5 text-center md:text-left">
-        <h3 className="font-serif text-xl md:text-[1.4rem] text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold">
+        <h3 className="font-serif text-xl md:text-[1.4rem] font-semibold text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold">
           {treatment.title}
         </h3>
-        <p className="mt-2 text-xs leading-relaxed text-skinmed-text-muted max-w-full">
+        <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-skinmed-text font-medium max-w-full">
           {treatment.blurb}
         </p>
       </div>
