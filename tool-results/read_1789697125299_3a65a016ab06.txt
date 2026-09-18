@@ -1,0 +1,1578 @@
+     1→# PROJECT: Dr Zee’s SKINMED — Luxury Dermatology Website
+     2→
+     3→You are an expert UI/UX designer, creative developer, and frontend engineer.
+     4→
+     5→Your task is to build/refine the Dr Zee’s SKINMED website into a world-class luxury dermatology experience.
+     6→
+     7→IMPORTANT:
+     8→The uploaded reference image is the PRIMARY visual reference for this project.
+     9→
+    10→You must closely follow its:
+    11→- Overall composition
+    12→- Section order
+    13→- Visual hierarchy
+    14→- Color palette
+    15→- Typography style
+    16→- Image treatment
+    17→- Spacing
+    18→- Luxury editorial aesthetic
+    19→- Card styling
+    20→- Navigation structure
+    21→- CTA placement
+    22→- Section proportions
+    23→- Premium medical-brand feel
+    24→
+    25→DO NOT redesign the website into a different concept.
+    26→
+    27→DO NOT add additional pages.
+    28→
+    29→DO NOT turn this into a SaaS, ecommerce, marketplace, hospital, or generic medical website.
+    30→
+    31→The website must remain a SINGLE-PAGE luxury dermatology website following the reference.
+    32→
+    33→==================================================
+    34→# 1. CORE DESIGN DIRECTION
+    35→==================================================
+    36→
+    37→Design language:
+    38→
+    39→Luxury Dermatology Clinic
+    40→+
+    41→Premium Skincare Brand
+    42→+
+    43→Luxury Hotel
+    44→+
+    45→Editorial Magazine
+    46→+
+    47→Modern Medical Technology
+    48→
+    49→The final impression should be:
+    50→
+    51→"An internationally positioned premium dermatology and aesthetics brand based in Chennai."
+    52→
+    53→The design should feel:
+    54→- Exclusive
+    55→- Elegant
+    56→- Calm
+    57→- Sophisticated
+    58→- Editorial
+    59→- Premium
+    60→- Trustworthy
+    61→- Modern
+    62→- Medical without looking clinical
+    63→- Feminine but not overly decorative
+    64→- Spacious
+    65→- Memorable
+    66→
+    67→Avoid:
+    68→- Generic clinic templates
+    69→- Typical hospital UI
+    70→- Excessive rounded cards
+    71→- Bright medical blue
+    72→- Excessive gradients
+    73→- Overly flashy animations
+    74→- Excessive glassmorphism
+    75→- SaaS-style dashboards
+    76→- Generic stock-template layouts
+    77→- Huge amounts of text
+    78→- Excessive icons
+    79→- Excessive shadows
+    80→- Overly saturated gold
+    81→- Cheap-looking luxury effects
+    82→
+    83→Premium design must come from:
+    84→- Typography
+    85→- Spacing
+    86→- Composition
+    87→- Photography
+    88→- Subtle motion
+    89→- Material hierarchy
+    90→- Editorial layouts
+    91→
+    92→==================================================
+    93→# 2. REFERENCE IMAGE IS THE DESIGN SOURCE
+    94→==================================================
+    95→
+    96→Treat the uploaded reference image as the source of truth.
+    97→
+    98→Do not blindly copy every pixel.
+    99→
+   100→Instead, reproduce its visual language and information architecture.
+   101→
+   102→The page structure should closely follow this order:
+   103→
+   104→1. Sticky Navigation
+   105→2. Cinematic Hero
+   106→3. Trust Statistics
+   107→4. Doctor Introduction
+   108→5. Signature Treatments
+   109→6. Advanced Care / Technology
+   110→7. Real Results / Before & After
+   111→8. AI Skin Analysis
+   112→9. Clinic Experience Gallery
+   113→10. Patient Video Testimonials
+   114→11. FAQ + Clinic Location
+   115→12. Final Consultation CTA
+   116→13. Luxury Footer
+   117→
+   118→DO NOT add:
+   119→- About page
+   120→- Services page
+   121→- Doctors page
+   122→- Blog page
+   123→- Pricing page
+   124→- Shop page
+   125→- Separate contact page
+   126→- Separate gallery page
+   127→- Login page
+   128→- Dashboard
+   129→- Any other route/page
+   130→
+   131→Everything belongs on the single homepage.
+   132→
+   133→==================================================
+   134→# 3. COLOR SYSTEM
+   135→==================================================
+   136→
+   137→Use this exact base palette:
+   138→
+   139→Warm Ivory:
+   140→#F8F4EE
+   141→
+   142→Gold:
+   143→#C9A55C
+   144→
+   145→Dark Charcoal:
+   146→#171717
+   147→
+   148→Soft Beige:
+   149→#EFE7DB
+   150→
+   151→White:
+   152→#FFFFFF
+   153→
+   154→Muted Text:
+   155→Use an understated warm gray rather than cool gray.
+   156→
+   157→Gold should be used carefully.
+   158→
+   159→Gold is an accent, not the dominant background color.
+   160→
+   161→Use:
+   162→- Gold lines
+   163→- Gold icons
+   164→- Gold borders
+   165→- Gold CTA accents
+   166→- Gold decorative elements
+   167→- Subtle gold gradients
+   168→
+   169→Avoid:
+   170→- Metallic yellow
+   171→- Bright orange gold
+   172→- Excessive gold backgrounds
+   173→
+   174→Dark sections should use charcoal/near-black.
+   175→
+   176→==================================================
+   177→# 4. TYPOGRAPHY
+   178→==================================================
+   179→
+   180→Primary heading font:
+   181→Playfair Display
+   182→
+   183→Body/UI font:
+   184→Poppins
+   185→
+   186→Typography must feel editorial.
+   187→
+   188→Headings:
+   189→- Large
+   190→- Thin/elegant
+   191→- High contrast
+   192→- Generous line height
+   193→- Minimal bold usage
+   194→
+   195→Body:
+   196→- Clean
+   197→- Small
+   198→- Spacious
+   199→- Highly readable
+   200→
+   201→Use typography to create hierarchy instead of excessive cards.
+   202→
+   203→Suggested hierarchy:
+   204→
+   205→Hero heading:
+   206→Very large editorial serif
+   207→
+   208→Section heading:
+   209→Large Playfair Display
+   210→
+   211→Eyebrow:
+   212→Small uppercase Poppins with letter spacing
+   213→
+   214→Body:
+   215→Small/medium Poppins
+   216→
+   217→Buttons:
+   218→Medium-weight Poppins
+   219→
+   220→==================================================
+   221→# 5. NAVIGATION
+   222→==================================================
+   223→
+   224→Create a premium sticky navigation.
+   225→
+   226→Desktop:
+   227→
+   228→LEFT:
+   229→Gold Dr Zee’s SKINMED logo
+   230→
+   231→CENTER:
+   232→Home
+   233→About
+   234→Treatments
+   235→Skin Concerns
+   236→Results
+   237→Gallery
+   238→Contact
+   239→
+   240→RIGHT:
+   241→Phone
+   242→Book Consultation
+   243→
+   244→Follow the reference image closely.
+   245→
+   246→Initial state:
+   247→- Transparent / very subtle background
+   248→- Works naturally over hero
+   249→
+   250→After scrolling:
+   251→- Warm ivory/white translucent background
+   252→- Subtle backdrop blur
+   253→- Thin border
+   254→- Smooth transition
+   255→
+   256→Navigation behavior:
+   257→- Sticky
+   258→- Smooth anchor scrolling
+   259→- Active section indication
+   260→- Elegant hover animation
+   261→
+   262→Mobile:
+   263→- Compact logo
+   264→- Hamburger menu
+   265→- Full-screen or elegant slide-down menu
+   266→- Book Consultation CTA
+   267→
+   268→Do not add navigation items that do not exist in the reference.
+   269→
+   270→==================================================
+   271→# 6. HERO SECTION
+   272→==================================================
+   273→
+   274→This is the primary WOW section.
+   275→
+   276→The hero must feel cinematic.
+   277→
+   278→Desktop:
+   279→- Large viewport height
+   280→- High-quality skin close-up imagery/video
+   281→- Doctor/skin imagery integrated naturally
+   282→- Editorial composition
+   283→- Large Playfair Display headline
+   284→
+   285→Reference-style headline:
+   286→
+   287→"Healthy Skin
+   288→Happier You"
+   289→
+   290→Supporting copy:
+   291→
+   292→"Expert care. Advanced technology. Visible results.
+   293→Welcome to a more confident you."
+   294→
+   295→Primary CTA:
+   296→"Book Consultation"
+   297→
+   298→Secondary CTA:
+   299→"Chat on WhatsApp"
+   300→
+   301→Add subtle trust indicators near the bottom.
+   302→
+   303→Example:
+   304→10,000+
+   305→Happy Patients
+   306→
+   307→4.7+
+   308→Google Rating
+   309→
+   310→12+
+   311→Years Experience
+   312→
+   313→100+
+   314→Advanced Procedures
+   315→
+   316→Hero visual effects:
+   317→- Very subtle gold particles
+   318→- Soft skin texture overlay
+   319→- Subtle parallax
+   320→- Slow image movement
+   321→- Elegant text reveal
+   322→- Minimal floating elements
+   323→
+   324→Do NOT make the hero look like a technology landing page.
+   325→
+   326→It must remain a luxury dermatology hero.
+   327→
+   328→==================================================
+   329→# 7. TRUST STATISTICS
+   330→==================================================
+   331→
+   332→Create a sophisticated trust-statistics treatment.
+   333→
+   334→Statistics:
+   335→
+   336→10,000+
+   337→Happy Patients
+   338→
+   339→4.7+
+   340→Google Rating
+   341→
+   342→12+
+   343→Years Experience
+   344→
+   345→100+
+   346→Advanced Procedures
+   347→
+   348→Animate numbers when they enter the viewport.
+   349→
+   350→Animation:
+   351→- Smooth
+   352→- Short
+   353→- Elegant
+   354→- No bouncing
+   355→
+   356→Cards should feel integrated into the page rather than like dashboard widgets.
+   357→
+   358→==================================================
+   359→# 8. DOCTOR SECTION
+   360→==================================================
+   361→
+   362→Follow the reference image's asymmetrical editorial composition.
+   363→
+   364→Do NOT create a generic:
+   365→image | text
+   366→
+   367→two-column layout.
+   368→
+   369→Instead:
+   370→
+   371→- Large doctor portrait
+   372→- Image partially overlapping decorative shape
+   373→- Editorial text block
+   374→- Gold decorative details
+   375→- Small credentials
+   376→- Quote/statement card
+   377→- CTA
+   378→
+   379→Content structure:
+   380→
+   381→MEET
+   382→
+   383→Dr. Zee­nath Begum
+   384→
+   385→MBBS, MD – Dermatology & Cosmetology
+   386→
+   387→Short introduction.
+   388→
+   389→Credentials:
+   390→- Specialized in Medical, Cosmetic & Laser Dermatology
+   391→- Patient-first, ethical approach
+   392→- Trusted by 10,000+ happy patients
+   393→- Focus on long-term skin health
+   394→
+   395→CTA:
+   396→"Know More About Dr Zee"
+   397→
+   398→Include an elegant quote card similar to:
+   399→
+   400→"More Than
+   401→Skin
+   402→Deep"
+   403→
+   404→Do not invent medical credentials or achievements beyond provided content.
+   405→
+   406→==================================================
+   407→# 9. SIGNATURE TREATMENTS
+   408→==================================================
+   409→
+   410→Create an editorial treatment section.
+   411→
+   412→Eyebrow:
+   413→OUR SIGNATURE
+   414→
+   415→Heading:
+   416→Treatments
+   417→
+   418→Supporting text:
+   419→"Comprehensive solutions for your skin, hair and nail concerns."
+   420→
+   421→Treatment categories:
+   422→
+   423→1. Acne & Acne Scars
+   424→2. Laser Treatments
+   425→3. Pigmentation Correction
+   426→4. Hair Restoration
+   427→5. Anti-Aging Solutions
+   428→6. Skin Rejuvenation
+   429→
+   430→Use circular/organic image cards similar to the reference.
+   431→
+   432→Interaction:
+   433→- Image subtly scales
+   434→- Card expands slightly
+   435→- Gold icon appears/highlights
+   436→- Text moves subtly
+   437→- No aggressive transformation
+   438→
+   439→CTA:
+   440→"Explore All Treatments"
+   441→
+   442→IMPORTANT:
+   443→Do not create separate treatment pages.
+   444→
+   445→These are sections/cards within the homepage.
+   446→
+   447→==================================================
+   448→# 10. ADVANCED CARE SECTION
+   449→==================================================
+   450→
+   451→Create a dramatic dark luxury section.
+   452→
+   453→Eyebrow:
+   454→SCIENCE MEETS BEAUTY
+   455→
+   456→Heading:
+   457→Advanced Care
+   458→Real Results
+   459→
+   460→Supporting copy:
+   461→
+   462→"Modern technology. Personalized treatments.
+   463→A more confident you."
+   464→
+   465→Use:
+   466→- Dark charcoal background
+   467→- Skin/face visual
+   468→- Gold particles
+   469→- Subtle lighting
+   470→- Technology information
+   471→- Video/clinic-story card
+   472→
+   473→Information cards:
+   474→
+   475→FDA Approved Technologies
+   476→Safe & Proven Procedures
+   477→Personalized Treatment Plans
+   478→Natural Looking Results
+   479→
+   480→CTA:
+   481→"See the Difference"
+   482→
+   483→Animation:
+   484→- Gold particle movement
+   485→- Slow image reveal
+   486→- Text fade
+   487→- Subtle parallax
+   488→
+   489→Keep this section visually restrained.
+   490→
+   491→==================================================
+   492→# 11. REAL RESULTS
+   493→==================================================
+   494→
+   495→Create a premium Before & After experience.
+   496→
+   497→Do NOT use a normal carousel.
+   498→
+   499→Use a large comparison slider.
+   500→
+   501→Structure:
+   502→
+   503→LEFT:
+   504→REAL PEOPLE
+   505→
+   506→Heading:
+   507→Real Results
+   508→
+   509→Supporting text:
+   510→"Visible transformations.
+   511→Trusted by thousands."
+   512→
+   513→CTA:
+   514→"View More Results"
+   515→
+   516→CENTER:
+   517→Large Before/After image comparison
+   518→
+   519→Requirements:
+   520→- Drag handle
+   521→- Smooth interaction
+   522→- Before label
+   523→- After label
+   524→- Touch support
+   525→- Responsive behavior
+   526→
+   527→RIGHT:
+   528→Luxury testimonial card
+   529→
+   530→Example:
+   531→
+   532→"My skin feels healthier
+   533→and I'm more confident
+   534→now. Thank you Dr Zee!"
+   535→
+   536→Include:
+   537→Patient name
+   538→Treatment
+   539→Rating
+   540→
+   541→Do not fabricate patient identities.
+   542→
+   543→==================================================
+   544→# 12. AI SKIN ANALYSIS — MAIN DIFFERENTIATOR
+   545→==================================================
+   546→
+   547→This is the most important interactive feature after the hero.
+   548→
+   549→Create:
+   550→
+   551→"AI Skin Analysis"
+   552→
+   553→Eyebrow:
+   554→TRY OUR
+   555→
+   556→Heading:
+   557→AI Skin Analysis
+   558→
+   559→Description:
+   560→
+   561→"Get a quick AI-based analysis of your skin concerns,
+   562→and take the first step toward healthier skin."
+   563→
+   564→CTA:
+   565→"Upload Your Photo"
+   566→
+   567→Visual:
+   568→Large human face / skin analysis interface.
+   569→
+   570→Show highlighted concerns:
+   571→
+   572→Acne
+   573→Pigmentation
+   574→Dark Spots
+   575→Wrinkles
+   576→Uneven Tone
+   577→
+   578→Create a sophisticated scan effect:
+   579→
+   580→- Vertical/horizontal gold scanning line
+   581→- Face detection frame
+   582→- Subtle analysis markers
+   583→- Gold hotspot indicators
+   584→- Slow scan animation
+   585→- Small data labels
+   586→- Subtle glowing elements
+   587→
+   588→Interaction:
+   589→User should be able to interact with the analysis visual.
+   590→
+   591→Possible interaction:
+   592→Hover/click concern markers → display small explanation card.
+   593→
+   594→Do not make medical diagnosis claims.
+   595→
+   596→The interface should be presented as an informational skin-analysis experience.
+   597→
+   598→Clearly avoid implying that AI replaces professional dermatological consultation.
+   599→
+   600→Visual style:
+   601→Luxury medical technology.
+   602→
+   603→NOT:
+   604→Cyberpunk
+   605→Gaming UI
+   606→Neon AI
+   607→Sci-fi dashboard
+   608→
+   609→==================================================
+   610→# 13. CLINIC EXPERIENCE
+   611→==================================================
+   612→
+   613→Create a masonry/editorial gallery.
+   614→
+   615→Eyebrow:
+   616→A SPACE DESIGNED
+   617→
+   618→Heading:
+   619→For Your Comfort
+   620→
+   621→Supporting text:
+   622→"Modern. Hygienic. Premium."
+   623→
+   624→Show:
+   625→- Reception
+   626→- Treatment rooms
+   627→- Consultation area
+   628→- Equipment
+   629→- Clinic details
+   630→
+   631→Use asymmetric image sizes.
+   632→
+   633→Do NOT use a conventional horizontal slider.
+   634→
+   635→Interactions:
+   636→- Subtle zoom
+   637→- Image reveal
+   638→- Hover caption
+   639→- Smooth transition
+   640→
+   641→Images should feel like luxury hospitality photography.
+   642→
+   643→==================================================
+   644→# 14. PATIENT TESTIMONIALS
+   645→==================================================
+   646→
+   647→Create a dark luxury section.
+   648→
+   649→Eyebrow:
+   650→HEAR WHAT
+   651→
+   652→Heading:
+   653→Our Patients Say
+   654→
+   655→Supporting text:
+   656→"Real stories. Real confidence."
+   657→
+   658→Use video testimonial cards.
+   659→
+   660→Each card:
+   661→- Patient video thumbnail
+   662→- Play button
+   663→- Treatment label
+   664→- Short quote
+   665→
+   666→Interaction:
+   667→- Hover preview if technically feasible
+   668→- Otherwise use elegant play interaction
+   669→
+   670→Include statistics:
+   671→
+   672→10,000+
+   673→Patients Served
+   674→
+   675→4.7+
+   676→Google Reviews
+   677→
+   678→12+
+   679→Years Experience
+   680→
+   681→Do not invent patient testimonials.
+   682→
+   683→Use placeholder content only where actual content is unavailable.
+   684→
+   685→==================================================
+   686→# 15. FAQ + CLINIC LOCATION
+   687→==================================================
+   688→
+   689→Create a split editorial section.
+   690→
+   691→LEFT:
+   692→Frequently
+   693→Asked Questions
+   694→
+   695→Use accordion items.
+   696→
+   697→Questions can include:
+   698→
+   699→Does acne return after treatment?
+   700→How many laser sessions are needed?
+   701→Is hair treatment permanent?
+   702→What is the consultation process?
+   703→Is there any downtime after treatment?
+   704→
+   705→RIGHT:
+   706→Visit Our Clinic
+   707→
+   708→Include:
+   709→- Location map
+   710→- Address
+   711→- Opening hours
+   712→- Get Directions
+   713→- Call Now
+   714→
+   715→Use the clinic's actual supplied information.
+   716→
+   717→Do not invent location information.
+   718→
+   719→==================================================
+   720→# 16. FINAL CONSULTATION CTA
+   721→==================================================
+   722→
+   723→Create a large luxury CTA section.
+   724→
+   725→Use a beautiful close-up skin image.
+   726→
+   727→Heading:
+   728→
+   729→"Your Skin Transformation
+   730→Starts Today"
+   731→
+   732→Supporting copy:
+   733→
+   734→"Book a consultation with Dr Zee and take the first step
+   735→towards healthier, brighter skin."
+   736→
+   737→Buttons:
+   738→
+   739→Book Consultation
+   740→WhatsApp Now
+   741→
+   742→Supporting benefits:
+   743→
+   744→Expert Care
+   745→Advanced Technology
+   746→Personalized Treatment
+   747→Visible Results
+   748→
+   749→Keep the CTA elegant and spacious.
+   750→
+   751→==================================================
+   752→# 17. FOOTER
+   753→==================================================
+   754→
+   755→Dark luxury footer.
+   756→
+   757→Use gold logo.
+   758→
+   759→Columns:
+   760→
+   761→Quick Links
+   762→- Home
+   763→- About Dr Zee
+   764→- Treatments
+   765→- Patient Stories
+   766→- Gallery
+   767→- Contact
+   768→
+   769→Our Treatments
+   770→- Acne & Scars
+   771→- Pigmentation
+   772→- Hair Restoration
+   773→- Anti-Aging
+   774→- Laser Treatments
+   775→- Skin Rejuvenation
+   776→
+   777→Follow Us:
+   778→Social icons
+   779→
+   780→Contact:
+   781→Phone
+   782→Email
+   783→
+   784→Newsletter:
+   785→"Get skincare tips, updates & offers"
+   786→
+   787→Email input
+   788→Arrow submit button
+   789→
+   790→Bottom:
+   791→© 2026 Dr Zee's SKINMED. All rights reserved.
+   792→
+   793→Privacy Policy
+   794→Terms
+   795→Sitemap
+   796→
+   797→Do not add additional footer pages unless they already exist in the project.
+   798→
+   799→==================================================
+   800→# 18. FLOATING ACTIONS
+   801→==================================================
+   802→
+   803→Implement:
+   804→
+   805→Floating WhatsApp button
+   806→Floating Call button
+   807→Floating Appointment/Consultation button
+   808→
+   809→These must remain subtle and premium.
+   810→
+   811→Do not allow floating buttons to cover important mobile content.
+   812→
+   813→==================================================
+   814→# 19. BACK TO TOP
+   815→==================================================
+   816→
+   817→Create a premium circular back-to-top button.
+   818→
+   819→Behavior:
+   820→- Hidden initially
+   821→- Appears after approximately 25% page scroll
+   822→- Gold outline
+   823→- Subtle glow
+   824→- Smooth scroll
+   825→- Bottom-right position
+   826→- Positioned safely above floating WhatsApp CTA
+   827→
+   828→==================================================
+   829→# 20. ANIMATION SYSTEM
+   830→==================================================
+   831→
+   832→Use GSAP where appropriate.
+   833→
+   834→Animation principles:
+   835→
+   836→Premium
+   837→Slow
+   838→Subtle
+   839→Intentional
+   840→
+   841→Implement:
+   842→
+   843→1. Fade-up
+   844→2. Fade-in
+   845→3. Scale-in
+   846→4. Text reveal
+   847→5. Image mask reveal
+   848→6. Staggered cards
+   849→7. Parallax
+   850→8. Scroll-based transitions
+   851→9. Hover micro-interactions
+   852→10. Counter animation
+   853→11. Before/After slider interaction
+   854→12. AI scanning animation
+   855→
+   856→Avoid:
+   857→- Excessive bouncing
+   858→- Fast rotations
+   859→- Large zooms
+   860→- Excessive blur
+   861→- Constant movement
+   862→- Distracting particles
+   863→
+   864→Respect:
+   865→
+   866→prefers-reduced-motion
+   867→
+   868→If the user has reduced motion enabled, significantly reduce animations.
+   869→
+   870→==================================================
+   871→# 21. PREMIUM INTERACTIONS
+   872→==================================================
+   873→
+   874→Implement carefully:
+   875→
+   876→Cursor glow
+   877→Magnetic buttons
+   878→Gold shimmer
+   879→Image hover zoom
+   880→Elegant card hover
+   881→Button arrow movement
+   882→Text reveal
+   883→Image mask reveal
+   884→
+   885→Cursor effects must be disabled or simplified on touch devices.
+   886→
+   887→Magnetic interactions should be subtle.
+   888→
+   889→Never sacrifice usability for visual effects.
+   890→
+   891→==================================================
+   892→# 22. RESPONSIVE DESIGN
+   893→==================================================
+   894→
+   895→Build mobile-first.
+   896→
+   897→Breakpoints should be thoughtfully designed.
+   898→
+   899→Desktop:
+   900→- Editorial compositions
+   901→- Large imagery
+   902→- Asymmetrical layouts
+   903→- Large typography
+   904→
+   905→Tablet:
+   906→- Preserve hierarchy
+   907→- Reduce spacing
+   908→- Adapt image composition
+   909→
+   910→Mobile:
+   911→- Single-column where necessary
+   912→- Preserve premium visual hierarchy
+   913→- Avoid tiny text
+   914→- Touch-friendly controls
+   915→- Proper CTA placement
+   916→- Horizontal overflow must never occur accidentally
+   917→- Before/After slider must remain usable
+   918→- AI Skin Analysis must remain functional
+   919→- Navigation becomes mobile menu
+   920→
+   921→Do NOT simply stack the desktop design.
+   922→
+   923→Recompose sections specifically for mobile.
+   924→
+   925→==================================================
+   926→# 23. PERFORMANCE
+   927→==================================================
+   928→
+   929→Use Next.js best practices.
+   930→
+   931→Requirements:
+   932→
+   933→- Optimized images
+   934→- WebP/AVIF where appropriate
+   935→- Lazy loading
+   936→- Proper image dimensions
+   937→- Responsive images
+   938→- Avoid unnecessary JavaScript
+   939→- Avoid layout shift
+   940→- Efficient GSAP animations
+   941→- GPU-friendly transforms
+   942→- No excessive DOM animation
+   943→- Lazy-load videos
+   944→- Use poster images for video
+   945→- Avoid loading every gallery image immediately
+   946→
+   947→Target:
+   948→
+   949→Lighthouse Performance:
+   950→90+
+   951→
+   952→Accessibility:
+   953→90+
+   954→
+   955→Best Practices:
+   956→90+
+   957→
+   958→SEO:
+   959→90+
+   960→
+   961→Do not sacrifice visual quality unnecessarily to achieve the score.
+   962→
+   963→==================================================
+   964→# 24. ACCESSIBILITY
+   965→==================================================
+   966→
+   967→Implement:
+   968→
+   969→- Semantic HTML
+   970→- Proper heading hierarchy
+   971→- Alt text
+   972→- Keyboard navigation
+   973→- Focus states
+   974→- Accessible buttons
+   975→- Accessible accordions
+   976→- Accessible navigation
+   977→- Color contrast
+   978→- Reduced-motion support
+   979→- Proper form labels
+   980→
+   981→Do not use visual effects that make content unreadable.
+   982→
+   983→==================================================
+   984→# 25. SEO
+   985→==================================================
+   986→
+   987→Create appropriate metadata for:
+   988→
+   989→Dr Zee's SKINMED
+   990→Dermatology
+   991→Cosmetology
+   992→Skin Clinic
+   993→Laser Dermatology
+   994→Hair Restoration
+   995→Chennai
+   996→
+   997→Use semantic headings.
+   998→
+   999→Do not keyword-stuff.
+  1000→
+  1001→Add:
+  1002→- Open Graph metadata
+  1003→- Favicon
+  1004→- Proper title
+  1005→- Meta description
+  1006→- Canonical URL if known
+  1007→
+  1008→==================================================
+  1009→# 26. FAVICON
+  1010→==================================================
+  1011→
+  1012→Create/use the gold "Z" emblem from the Dr Zee's SKINMED logo.
+  1013→
+  1014→Requirements:
+  1015→
+  1016→- SVG
+  1017→- Transparent background
+  1018→- Clean silhouette
+  1019→- Retina-friendly
+  1020→- Premium appearance at 16x16 and 32x32
+  1021→
+  1022→Do not create a random favicon.
+  1023→
+  1024→==================================================
+  1025→# 27. CONTENT RULES
+  1026→==================================================
+  1027→
+  1028→Use the content supplied by the project/reference.
+  1029→
+  1030→Do not invent:
+  1031→- Doctors
+  1032→- Patient identities
+  1033→- Medical claims
+  1034→- Certifications
+  1035→- Awards
+  1036→- Statistics
+  1037→- Treatments
+  1038→- Addresses
+  1039→- Reviews
+  1040→- Testimonials
+  1041→
+  1042→If real content is unavailable:
+  1043→Use clearly identifiable placeholder content that can easily be replaced.
+  1044→
+  1045→Do not present fabricated information as real.
+  1046→
+  1047→==================================================
+  1048→# 28. PAGE ARCHITECTURE
+  1049→==================================================
+  1050→
+  1051→There is ONLY ONE MAIN PAGE.
+  1052→
+  1053→Suggested structure:
+  1054→
+  1055→/
+  1056→ ├── Navbar
+  1057→ ├── Hero
+  1058→ ├── Trust Stats
+  1059→ ├── Doctor
+  1060→ ├── Treatments
+  1061→ ├── Advanced Care
+  1062→ ├── Results
+  1063→ ├── AI Skin Analysis
+  1064→ ├── Clinic Gallery
+  1065→ ├── Testimonials
+  1066→ ├── FAQ + Location
+  1067→ ├── Consultation CTA
+  1068→ └── Footer
+  1069→
+  1070→Do not create additional routes unless they are technically required by an existing project.
+  1071→
+  1072→Anchor navigation should be used.
+  1073→
+  1074→==================================================
+  1075→# 29. COMPONENT ARCHITECTURE
+  1076→==================================================
+  1077→
+  1078→Create reusable components such as:
+  1079→
+  1080→Navbar
+  1081→Hero
+  1082→TrustStats
+  1083→DoctorSection
+  1084→TreatmentSection
+  1085→TreatmentCard
+  1086→AdvancedCare
+  1087→ResultsSection
+  1088→BeforeAfterSlider
+  1089→AISkinAnalysis
+  1090→ClinicGallery
+  1091→Testimonials
+  1092→TestimonialCard
+  1093→FAQ
+  1094→ClinicLocation
+  1095→ConsultationCTA
+  1096→Footer
+  1097→FloatingActions
+  1098→BackToTop
+  1099→
+  1100→Keep components maintainable.
+  1101→
+  1102→Avoid creating one enormous component.
+  1103→
+  1104→==================================================
+  1105→# 30. IMPLEMENTATION WORKFLOW
+  1106→==================================================
+  1107→
+  1108→IMPORTANT:
+  1109→
+  1110→Do NOT attempt to build everything at once.
+  1111→
+  1112→Work in the following phases.
+  1113→
+  1114→------------------------------------------
+  1115→PHASE 0 — PROJECT AUDIT
+  1116→------------------------------------------
+  1117→
+  1118→Before changing code:
+  1119→
+  1120→1. Inspect the entire existing project.
+  1121→2. Identify:
+  1122→   - Framework
+  1123→   - Next.js version
+  1124→   - Existing components
+  1125→   - Existing routes
+  1126→   - Existing styling system
+  1127→   - Tailwind configuration
+  1128→   - Installed dependencies
+  1129→   - Existing assets
+  1130→   - Existing fonts
+  1131→   - Existing images
+  1132→3. Determine what can be reused.
+  1133→4. Do not unnecessarily replace working infrastructure.
+  1134→5. Identify missing assets.
+  1135→6. Check current responsive behavior.
+  1136→
+  1137→Then produce a short implementation plan.
+  1138→
+  1139→Do not begin major implementation until the audit is complete.
+  1140→
+  1141→------------------------------------------
+  1142→PHASE 1 — DESIGN FOUNDATION
+  1143→------------------------------------------
+  1144→
+  1145→Implement:
+  1146→
+  1147→- Color system
+  1148→- Typography
+  1149→- Global CSS
+  1150→- Container system
+  1151→- Spacing system
+  1152→- Buttons
+  1153→- Links
+  1154→- Section utilities
+  1155→- Responsive foundations
+  1156→
+  1157→Verify the visual foundation against the reference.
+  1158→
+  1159→------------------------------------------
+  1160→PHASE 2 — NAVIGATION + HERO
+  1161→------------------------------------------
+  1162→
+  1163→Implement:
+  1164→
+  1165→- Navbar
+  1166→- Sticky behavior
+  1167→- Hero
+  1168→- Hero imagery/video
+  1169→- CTAs
+  1170→- Trust indicators
+  1171→- Hero animations
+  1172→- Mobile navigation
+  1173→
+  1174→Then test:
+  1175→
+  1176→Desktop
+  1177→Tablet
+  1178→Mobile
+  1179→
+  1180→Do not continue until this section visually matches the reference direction.
+  1181→
+  1182→------------------------------------------
+  1183→PHASE 3 — TRUST + DOCTOR
+  1184→------------------------------------------
+  1185→
+  1186→Implement:
+  1187→
+  1188→- Trust statistics
+  1189→- Counter animation
+  1190→- Doctor editorial section
+  1191→- Portrait composition
+  1192→- Quote card
+  1193→- Credentials
+  1194→- CTA
+  1195→
+  1196→Validate spacing and typography.
+  1197→
+  1198→------------------------------------------
+  1199→PHASE 4 — TREATMENTS
+  1200→------------------------------------------
+  1201→
+  1202→Implement:
+  1203→
+  1204→- Treatment section
+  1205→- Circular treatment cards
+  1206→- Hover interactions
+  1207→- Responsive behavior
+  1208→
+  1209→Validate against reference.
+  1210→
+  1211→------------------------------------------
+  1212→PHASE 5 — ADVANCED CARE
+  1213→------------------------------------------
+  1214→
+  1215→Implement:
+  1216→
+  1217→- Dark luxury section
+  1218→- Technology cards
+  1219→- Skin visual
+  1220→- Gold particle effects
+  1221→- Clinic story card
+  1222→- Animations
+  1223→
+  1224→Prioritize performance.
+  1225→
+  1226→------------------------------------------
+  1227→PHASE 6 — REAL RESULTS
+  1228→------------------------------------------
+  1229→
+  1230→Implement:
+  1231→
+  1232→- Before/After comparison slider
+  1233→- Testimonial card
+  1234→- Responsive interaction
+  1235→- Image reveal animation
+  1236→
+  1237→Test touch interaction carefully.
+  1238→
+  1239→------------------------------------------
+  1240→PHASE 7 — AI SKIN ANALYSIS
+  1241→------------------------------------------
+  1242→
+  1243→This is the main interactive feature.
+  1244→
+  1245→Implement:
+  1246→
+  1247→- Face visual
+  1248→- Analysis frame
+  1249→- Scan line
+  1250→- Hotspots
+  1251→- Concern labels
+  1252→- Interaction
+  1253→- CTA
+  1254→- Responsive version
+  1255→
+  1256→Ensure it feels premium rather than futuristic/gaming.
+  1257→
+  1258→------------------------------------------
+  1259→PHASE 8 — CLINIC EXPERIENCE
+  1260→------------------------------------------
+  1261→
+  1262→Implement:
+  1263→
+  1264→- Masonry gallery
+  1265→- Clinic images
+  1266→- Hover zoom
+  1267→- Image reveal
+  1268→- Responsive masonry composition
+  1269→
+  1270→------------------------------------------
+  1271→PHASE 9 — TESTIMONIALS
+  1272→------------------------------------------
+  1273→
+  1274→Implement:
+  1275→
+  1276→- Dark section
+  1277→- Video cards
+  1278→- Play buttons
+  1279→- Hover behavior
+  1280→- Ratings
+  1281→- Responsive layout
+  1282→
+  1283→------------------------------------------
+  1284→PHASE 10 — FAQ + LOCATION
+  1285→------------------------------------------
+  1286→
+  1287→Implement:
+  1288→
+  1289→- FAQ accordion
+  1290→- Location section
+  1291→- Map
+  1292→- Opening hours
+  1293→- Call CTA
+  1294→- Directions CTA
+  1295→
+  1296→------------------------------------------
+  1297→PHASE 11 — FINAL CTA + FOOTER
+  1298→------------------------------------------
+  1299→
+  1300→Implement:
+  1301→
+  1302→- Final consultation CTA
+  1303→- Footer
+  1304→- Newsletter
+  1305→- Social icons
+  1306→- Contact details
+  1307→- Footer navigation
+  1308→- Legal links
+  1309→
+  1310→------------------------------------------
+  1311→PHASE 12 — GLOBAL INTERACTIONS
+  1312→------------------------------------------
+  1313→
+  1314→After all sections are stable:
+  1315→
+  1316→Implement:
+  1317→
+  1318→- Cursor glow
+  1319→- Magnetic buttons
+  1320→- Gold shimmer
+  1321→- Global hover effects
+  1322→- Back-to-top
+  1323→- Floating WhatsApp
+  1324→- Floating Call
+  1325→- Floating Consultation
+  1326→
+  1327→Do not add these prematurely.
+  1328→
+  1329→------------------------------------------
+  1330→PHASE 13 — ANIMATION POLISH
+  1331→------------------------------------------
+  1332→
+  1333→Use GSAP to polish:
+  1334→
+  1335→- Section entrance
+  1336→- Text reveal
+  1337→- Image reveal
+  1338→- Parallax
+  1339→- Stagger
+  1340→- Counters
+  1341→- AI scan
+  1342→- Before/After interaction
+  1343→
+  1344→Animations must feel cohesive.
+  1345→
+  1346→------------------------------------------
+  1347→PHASE 14 — RESPONSIVE POLISH
+  1348→------------------------------------------
+  1349→
+  1350→Test:
+  1351→
+  1352→320px
+  1353→375px
+  1354→390px
+  1355→430px
+  1356→768px
+  1357→1024px
+  1358→1280px
+  1359→1440px
+  1360→1920px
+  1361→
+  1362→Fix:
+  1363→
+  1364→- Overflow
+  1365→- Typography
+  1366→- Image cropping
+  1367→- Spacing
+  1368→- Navigation
+  1369→- CTA positioning
+  1370→- Slider interaction
+  1371→- Gallery
+  1372→- Footer
+  1373→- Floating buttons
+  1374→
+  1375→------------------------------------------
+  1376→PHASE 15 — PERFORMANCE + ACCESSIBILITY
+  1377→------------------------------------------
+  1378→
+  1379→Run:
+  1380→
+  1381→- Lighthouse
+  1382→- Build
+  1383→- TypeScript checks
+  1384→- ESLint
+  1385→- Accessibility checks
+  1386→
+  1387→Fix:
+  1388→
+  1389→- Console errors
+  1390→- Broken images
+  1391→- Layout shifts
+  1392→- Unnecessary JS
+  1393→- Animation performance
+  1394→- Missing alt text
+  1395→- Keyboard navigation
+  1396→- Mobile issues
+  1397→
+  1398→------------------------------------------
+  1399→PHASE 16 — FINAL VISUAL QA
+  1400→------------------------------------------
+  1401→
+  1402→Compare the final website against the uploaded reference image.
+  1403→
+  1404→Check:
+  1405→
+  1406→1. Overall composition
+  1407→2. Section ordering
+  1408→3. Typography
+  1409→4. Colors
+  1410→5. Image treatment
+  1411→6. Spacing
+  1412→7. CTA hierarchy
+  1413→8. Premium feel
+  1414→9. Mobile experience
+  1415→10. Animation quality
+  1416→
+  1417→Then make a final polish pass.
+  1418→
+  1419→==================================================
+  1420→# 31. AGENT RULES
+  1421→==================================================
+  1422→
+  1423→Follow these rules throughout the project:
+  1424→
+  1425→RULE 1:
+  1426→The uploaded reference image is the visual source of truth.
+  1427→
+  1428→RULE 2:
+  1429→Do not add pages.
+  1430→
+  1431→RULE 3:
+  1432→Do not change the overall information architecture.
+  1433→
+  1434→RULE 4:
+  1435→Do not introduce unrelated design patterns.
+  1436→
+  1437→RULE 5:
+  1438→Do not use generic templates.
+  1439→
+  1440→RULE 6:
+  1441→Do not overuse cards.
+  1442→
+  1443→RULE 7:
+  1444→Do not overuse rounded corners.
+  1445→
+  1446→RULE 8:
+  1447→Do not overuse gold.
+  1448→
+  1449→RULE 9:
+  1450→Do not use bright medical blue.
+  1451→
+  1452→RULE 10:
+  1453→Do not invent medical claims.
+  1454→
+  1455→RULE 11:
+  1456→Do not invent testimonials.
+  1457→
+  1458→RULE 12:
+  1459→Do not invent statistics.
+  1460→
+  1461→RULE 13:
+  1462→Do not sacrifice performance for animations.
+  1463→
+  1464→RULE 14:
+  1465→Do not sacrifice usability for visual effects.
+  1466→
+  1467→RULE 15:
+  1468→Do not create desktop-only interactions.
+  1469→
+  1470→RULE 16:
+  1471→Every interaction must have a mobile-safe fallback.
+  1472→
+  1473→RULE 17:
+  1474→Reuse existing project infrastructure whenever practical.
+  1475→
+  1476→RULE 18:
+  1477→Do not install unnecessary libraries.
+  1478→
+  1479→RULE 19:
+  1480→Before installing a dependency, check whether the functionality can be implemented using the existing stack.
+  1481→
+  1482→RULE 20:
+  1483→Keep the code production-ready.
+  1484→
+  1485→==================================================
+  1486→# 32. QUALITY BAR
+  1487→==================================================
+  1488→
+  1489→The final result should NOT look like:
+  1490→
+  1491→- A student project
+  1492→- A generic React template
+  1493→- A hospital website
+  1494→- A WordPress clinic template
+  1495→- A SaaS landing page
+  1496→- A beauty salon website
+  1497→
+  1498→It should look like:
+  1499→
+  1500→A premium international dermatology brand.
+  1501→
+  1502→The design should communicate:
+  1503→
+  1504→TRUST
+  1505→+
+  1506→EXPERTISE
+  1507→+
+  1508→BEAUTY
+  1509→+
+  1510→TECHNOLOGY
+  1511→+
+  1512→PERSONALIZED CARE
+  1513→+
+  1514→TRANSFORMATION
+  1515→
+  1516→without becoming visually excessive.
+  1517→
+  1518→==================================================
+  1519→# 33. FINAL ACCEPTANCE CRITERIA
+  1520→==================================================
+  1521→
+  1522→The project is complete only when:
+  1523→
+  1524→[ ] Single-page architecture maintained
+  1525→[ ] Reference image followed closely
+  1526→[ ] No unnecessary pages added
+  1527→[ ] Premium navbar implemented
+  1528→[ ] Cinematic hero implemented
+  1529→[ ] Trust statistics implemented
+  1530→[ ] Doctor editorial section implemented
+  1531→[ ] Treatment cards implemented
+  1532→[ ] Advanced Care section implemented
+  1533→[ ] Before/After slider implemented
+  1534→[ ] AI Skin Analysis implemented
+  1535→[ ] Clinic masonry gallery implemented
+  1536→[ ] Video testimonials implemented
+  1537→[ ] FAQ implemented
+  1538→[ ] Clinic location implemented
+  1539→[ ] Final consultation CTA implemented
+  1540→[ ] Luxury footer implemented
+  1541→[ ] Floating CTAs implemented
+  1542→[ ] Back-to-top implemented
+  1543→[ ] Gold Z favicon implemented
+  1544→[ ] GSAP animations implemented
+  1545→[ ] Mobile responsive
+  1546→[ ] Accessibility handled
+  1547→[ ] SEO metadata handled
+  1548→[ ] Images optimized
+  1549→[ ] No horizontal overflow
+  1550→[ ] No console errors
+  1551→[ ] Production build succeeds
+  1552→[ ] Lighthouse performance optimized
+  1553→[ ] Reduced-motion support implemented
+  1554→[ ] Final visual QA completed
+  1555→
+  1556→==================================================
+  1557→# MOST IMPORTANT INSTRUCTION
+  1558→==================================================
+  1559→
+  1560→Do not interpret this brief as permission to redesign the concept.
+  1561→
+  1562→The uploaded reference image determines the visual direction.
+  1563→
+  1564→Build the website progressively.
+  1565→
+  1566→Complete one phase.
+  1567→Validate it.
+  1568→Then proceed to the next phase.
+  1569→
+  1570→If something is missing, make the smallest reasonable assumption while preserving the reference design.
+  1571→
+  1572→Do not add unnecessary features.
+  1573→
+  1574→Do not add unnecessary pages.
+  1575→
+  1576→Do not turn the project into something different.
+  1577→
+  1578→The final result must feel like the same brand and same website concept as the reference image, but implemented as a polished, responsive, production-quality Next.js experience.

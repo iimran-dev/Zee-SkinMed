@@ -1,0 +1,342 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Dr Zee's SKINMED — Luxury Dermatology Design System
+   ============================================================ */
+
+@theme {
+  /* Brand palette */
+  --color-skinmed-ivory: #F8F4EE;
+  --color-skinmed-gold: #C9A55C;
+  --color-skinmed-gold-light: #E5C988;
+  --color-skinmed-gold-dark: #A47E3B;
+  --color-skinmed-charcoal: #171717;
+  --color-skinmed-charcoal-soft: #1F1D1A;
+  --color-skinmed-beige: #EFE7DB;
+  --color-skinmed-white: #FFFFFF;
+  --color-skinmed-text: #3A3531;
+  --color-skinmed-text-muted: #7A7064;
+  --color-skinmed-line: #E3D9C8;
+  --color-skinmed-cream: #F1E9DC;
+
+  /* Semantic shadcn tokens mapped to SKINMED palette (light) */
+  --color-background: var(--color-skinmed-ivory);
+  --color-foreground: var(--color-skinmed-charcoal);
+  --color-card: var(--color-skinmed-white);
+  --color-card-foreground: var(--color-skinmed-charcoal);
+  --color-popover: var(--color-skinmed-white);
+  --color-popover-foreground: var(--color-skinmed-charcoal);
+  --color-primary: var(--color-skinmed-charcoal);
+  --color-primary-foreground: var(--color-skinmed-ivory);
+  --color-secondary: var(--color-skinmed-beige);
+  --color-secondary-foreground: var(--color-skinmed-charcoal);
+  --color-muted: var(--color-skinmed-beige);
+  --color-muted-foreground: var(--color-skinmed-text-muted);
+  --color-accent: var(--color-skinmed-gold);
+  --color-accent-foreground: var(--color-skinmed-charcoal);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-border: var(--color-skinmed-line);
+  --color-input: var(--color-skinmed-line);
+  --color-ring: var(--color-skinmed-gold);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --shadow-soft: 0 10px 40px -12px rgba(23, 23, 23, 0.10);
+  --shadow-gold: 0 8px 24px -8px rgba(201, 165, 92, 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-skinmed-line);
+    outline-color: color-mix(in oklab, var(--color-skinmed-gold) 60%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-skinmed-ivory);
+    color: var(--color-skinmed-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-skinmed-gold) 30%, transparent);
+    color: var(--color-skinmed-charcoal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Custom scrollbar — premium feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-skinmed-ivory);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-skinmed-gold) 50%, var(--color-skinmed-line));
+    border-radius: 9999px;
+    border: 2px solid var(--color-skinmed-ivory);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-skinmed-gold);
+  }
+}
+
+@layer components {
+  /* Premium container */
+  .skinmed-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 80rem;
+  }
+  @media (min-width: 768px) {
+    .skinmed-container { padding-inline: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .skinmed-container { padding-inline: 3rem; }
+  }
+  @media (min-width: 1440px) {
+    .skinmed-container { padding-inline: 4rem; max-width: 90rem; }
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-skinmed-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--color-skinmed-gold);
+    opacity: 0.7;
+  }
+  .eyebrow-center::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--color-skinmed-gold);
+    opacity: 0.7;
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--color-skinmed-charcoal);
+  }
+
+  /* Buttons */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-skinmed-charcoal);
+    background: linear-gradient(135deg, var(--color-skinmed-gold-light) 0%, var(--color-skinmed-gold) 55%, var(--color-skinmed-gold-dark) 100%);
+    border: 1px solid var(--color-skinmed-gold-dark);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, filter 0.4s ease;
+    box-shadow: var(--shadow-gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+  }
+  .btn-gold:hover { transform: translateY(-2px); filter: brightness(1.03); }
+  .btn-gold:hover::after { transform: translateX(120%); }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-skinmed-ivory);
+    background: var(--color-skinmed-charcoal);
+    border: 1px solid var(--color-skinmed-charcoal);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+  }
+  .btn-dark:hover { transform: translateY(-2px); background: #2A2724; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-skinmed-charcoal);
+    background: transparent;
+    border: 1px solid var(--color-skinmed-charcoal);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease;
+  }
+  .btn-ghost:hover { background: var(--color-skinmed-charcoal); color: var(--color-skinmed-ivory); transform: translateY(-2px); }
+
+  .btn-ghost-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-skinmed-ivory);
+    background: transparent;
+    border: 1px solid color-mix(in oklab, var(--color-skinmed-ivory) 60%, transparent);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  }
+  .btn-ghost-light:hover { background: var(--color-skinmed-ivory); color: var(--color-skinmed-charcoal); border-color: var(--color-skinmed-ivory); }
+
+  /* Gold divider line */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-skinmed-gold) 50%, transparent);
+  opacity: 0.5;
+  }
+
+  /* Arched (mirror/portal) image crop */
+  .arched-image {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    overflow: hidden;
+  }
+
+  /* Subtle card */
+  .card-soft {
+    background: var(--color-skinmed-white);
+    border: 1px solid var(--color-skinmed-line);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans  { font-family: var(--font-sans); }
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  /* Animations — premium, slow, intentional */
+  @keyframes skinmed-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float { animation: skinmed-float 6s ease-in-out infinite; }
+
+  @keyframes skinmed-scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+  .animate-scan { animation: skinmed-scan 4s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+
+  @keyframes skinmed-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes skinmed-pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 165, 92, 0.5); }
+    50% { box-shadow: 0 0 0 8px rgba(201, 165, 92, 0); }
+  }
+  .animate-pulse-gold { animation: skinmed-pulse-gold 2.5s ease-in-out infinite; }
+
+  @keyframes skinmed-twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.15); }
+  }
+  .animate-twinkle { animation: skinmed-twinkle 4s ease-in-out infinite; }
+
+  @keyframes skinmed-fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Hide visually but keep for screen readers */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
