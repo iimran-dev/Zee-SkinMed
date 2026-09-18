@@ -86,7 +86,7 @@ export function AdvancedCare() {
             <RevealStagger className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
               {ADVANCED_CARE_FEATURES.map((f) => (
                 <RevealStaggerItem key={f.title}>
-                  <div className="group relative rounded-xl border-l-2 border-skinmed-gold bg-skinmed-charcoal-soft/40 px-5 py-5 transition-colors duration-500 hover:bg-skinmed-charcoal-soft">
+                  <div className="group relative rounded-xl bg-skinmed-charcoal-soft/40 px-5 py-5 transition-colors duration-500 hover:bg-skinmed-charcoal-soft">
                     <div className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-skinmed-gold/60 text-skinmed-gold">
                         <Check className="h-3 w-3 stroke-[2.5]" />

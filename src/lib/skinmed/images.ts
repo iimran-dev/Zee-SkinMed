@@ -16,19 +16,33 @@ export const IMG = {
   // --- Hero Section ---
   hero: "/images/hero-skin-bg.jpg",
   heroAlt: "Close-up of a woman's face with natural freckles and glowing skin — Dr Zee's SKINMED",
+  heroVariants: [
+    {
+      id: 1,
+      src: "/images/hero-skin-bg.jpg",
+      alt: "Close-up of a woman's face with natural freckles and glowing skin — Dr Zee's SKINMED",
+      tag: "Radiance",
+    },
+    {
+      id: 2,
+      src: "/images/hero-skin-southasian.jpg",
+      alt: "South Asian woman with glowing skin — Dr Zee's SKINMED",
+      tag: "Natural Glow",
+    },
+  ] as readonly HeroVariant[],
 
 
   // --- Doctor Section ---
   doctor: "/",
   doctorAlt: "Portrait of Dr. Zeenath Begum, Consultant Dermatologist & Cosmetologist",
 
-  // --- Signature Treatments ---
-  acne: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=800&q=80",
-  laser: "https://plus.unsplash.com/premium_photo-1661645623435-41d9869758d9?auto=format&fit=crop&w=800&q=80",
-  pigmentation: "https://images.unsplash.com/photo-1670201203208-055d6d79db4a?auto=format&fit=crop&w=800&q=80",
-  hair: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-  antiaging: "https://plus.unsplash.com/premium_photo-1683134305973-81c0011aeb65?auto=format&fit=crop&w=800&q=80",
-  rejuvenation: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
+  // --- Signature Treatments (Portrait 3:4 High-Resolution Unsplash Imagery) ---
+  acne: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&crop=faces,top&w=900&h=1200&q=85",
+  laser: "https://plus.unsplash.com/premium_photo-1661476179686-80c9122da693?auto=format&fit=crop&crop=faces,center&w=900&h=1200&q=85",
+  pigmentation: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=faces,top&w=900&h=1200&q=85",
+  hair: "https://images.unsplash.com/photo-1522337094846-8a818192de1f?auto=format&fit=crop&crop=faces,top&w=900&h=1200&q=85",
+  antiaging: "https://plus.unsplash.com/premium_photo-1683134305973-81c0011aeb65?auto=format&fit=crop&crop=faces,top&w=900&h=1200&q=85",
+  rejuvenation: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&crop=faces,center&w=900&h=1200&q=85",
 
   // --- Advanced Care & Clinic Story ---
   advancedCare: "https://plus.unsplash.com/premium_photo-1661478253345-41d1351f68ae?auto=format&fit=crop&w=1000&q=85",

@@ -77,17 +77,7 @@ export function DoctorSection() {
                     </div>
                   </div>
 
-                  {/* Bottom: Clinical Credentials Card */}
-                  <div className="relative z-10 w-full pb-3">
-                    <div className="rounded-xl bg-white/90 backdrop-blur-xs border border-skinmed-line/80 px-4 py-2.5 shadow-2xs">
-                      <p className="text-[11px] font-semibold tracking-wider text-skinmed-charcoal uppercase">
-                        {BRAND.doctorCredentials}
-                      </p>
-                      <p className="text-[10px] text-skinmed-text-muted font-medium mt-0.5">
-                        12+ Years Clinical Experience
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
               )}
             </MaskReveal>
