@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, Phone, X } from "lucide-react";
 import { Container } from "../primitives";
 import { BRAND, NAV_LINKS } from "@/lib/skinmed/content";
+import { withBase } from "@/lib/skinmed/images";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,7 +89,7 @@ export function Navbar() {
           className="shrink-0 transition-opacity hover:opacity-90"
         >
           <Image
-            src="/skinmed-logo.svg"
+            src={withBase("/skinmed-logo.svg")}
             alt="Dr Zee's SKINMED — Luxury Dermatology Chennai"
             width={170}
             height={48}
@@ -174,7 +175,7 @@ export function Navbar() {
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center justify-between px-6 h-[72px] border-b border-skinmed-line">
-                <Image src="/skinmed-logo.svg" alt="Dr Zee's SKINMED" width={140} height={36} className="h-[32px] w-auto" />
+                <Image src={withBase("/skinmed-logo.svg")} alt="Dr Zee's SKINMED" width={140} height={36} className="h-[32px] w-auto" />
                 <button
                   type="button"
                   aria-label="Close menu"

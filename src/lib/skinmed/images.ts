@@ -12,20 +12,23 @@ export interface HeroVariant {
   tag: string;
 }
 
+export const BASE_PATH = "/zee-skinmed";
+export const withBase = (path: string) => `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+
 export const IMG = {
   // --- Hero Section ---
-  hero: "/images/hero-skin-bg.jpg",
+  hero: withBase("/images/hero-skin-bg.jpg"),
   heroAlt: "Close-up of a woman's face with natural freckles and glowing skin — Dr Zee's SKINMED",
   heroVariants: [
     {
       id: 1,
-      src: "/images/hero-skin-bg.jpg",
+      src: withBase("/images/hero-skin-bg.jpg"),
       alt: "Close-up of a woman's face with natural freckles and glowing skin — Dr Zee's SKINMED",
       tag: "Radiance",
     },
     {
       id: 2,
-      src: "/images/hero-skin-southasian.jpg",
+      src: withBase("/images/hero-skin-southasian.jpg"),
       alt: "South Asian woman with glowing skin — Dr Zee's SKINMED",
       tag: "Natural Glow",
     },
@@ -48,8 +51,8 @@ export const IMG = {
   advancedCare: "https://plus.unsplash.com/premium_photo-1661478253345-41d1351f68ae?auto=format&fit=crop&w=1000&q=85",
 
   // --- Results / Before & After Interactive Slider ---
-  before: "/images/results-before.jpg",
-  after: "/images/results-after.jpg",
+  before: withBase("/images/results-before.jpg"),
+  after: withBase("/images/results-after.jpg"),
 
   // --- AI Skin Analysis Diagnostic Visual ---
   aiFace: "https://plus.unsplash.com/premium_photo-1682096433084-b68c0cf072b8?auto=format&fit=crop&crop=faces,top&w=1000&h=1250&q=85",

@@ -1,14 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: "export",
+  devIndicators: false,
+  basePath: "/zee-skinmed",
   images: {
+    unoptimized: true,
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "z-cdn.chatglm.cn",
-        pathname: "/image-search-mcp/**",
-      },
       {
         protocol: "https",
         hostname: "images.unsplash.com",

@@ -6,6 +6,7 @@ import { ArrowRight, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "l
 import { Container, Reveal } from "../primitives";
 import { BRAND, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/skinmed/content";
 import { CLINIC_LOCATION } from "@/lib/skinmed/content";
+import { withBase } from "@/lib/skinmed/images";
 
 function getSocialIcon(label: string) {
   switch (label.toLowerCase()) {
@@ -46,7 +47,7 @@ export function Footer() {
           {/* Brand + newsletter */}
           <div className="md:col-span-4">
             <Image
-              src="/skinmed-logo-dark.svg"
+              src={withBase("/skinmed-logo-dark.svg")}
               alt="Dr Zee's SKINMED"
               width={170}
               height={48}
