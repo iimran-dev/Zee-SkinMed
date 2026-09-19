@@ -48,18 +48,18 @@ export const IMG = {
   advancedCare: "https://plus.unsplash.com/premium_photo-1661478253345-41d1351f68ae?auto=format&fit=crop&w=1000&q=85",
 
   // --- Results / Before & After Interactive Slider ---
-  before: "https://images.unsplash.com/photo-1730288951113-9cc087c14b83?auto=format&fit=crop&w=900&q=80",
-  after: "https://images.unsplash.com/photo-1728727187824-85f1c610a671?auto=format&fit=crop&w=900&q=80",
+  before: "/images/results-before.jpg",
+  after: "/images/results-after.jpg",
 
   // --- AI Skin Analysis Diagnostic Visual ---
-  aiFace: "https://plus.unsplash.com/premium_photo-1682096427238-8b2a0490258a?auto=format&fit=crop&w=1000&q=85",
+  aiFace: "https://plus.unsplash.com/premium_photo-1682096433084-b68c0cf072b8?auto=format&fit=crop&crop=faces,top&w=1000&h=1250&q=85",
 
   // --- Clinic Architecture & Treatment Suites ---
-  reception: "https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?auto=format&fit=crop&w=1000&q=80",
-  treatmentRoom: "https://plus.unsplash.com/premium_photo-1661573165720-be5678d18bcb?auto=format&fit=crop&w=800&q=80",
-  consult: "https://plus.unsplash.com/premium_photo-1661507017003-aa8d782df482?auto=format&fit=crop&w=800&q=80",
-  equipment: "https://plus.unsplash.com/premium_photo-1661573297404-d558c113a7d8?auto=format&fit=crop&w=1000&q=80",
-  studio: "https://images.unsplash.com/photo-1505410603994-c3ac6269711f?auto=format&fit=crop&w=800&q=80",
+  reception: "https://images.unsplash.com/photo-1758448093806-88b2089068ab?auto=format&fit=crop&w=1200&q=80",
+  treatmentRoom: "https://plus.unsplash.com/premium_photo-1764702259912-496ca09503a3?auto=format&fit=crop&w=1200&q=80",
+  consult: "https://images.unsplash.com/photo-1746173098504-bdf72c2ef831?auto=format&fit=crop&w=1200&q=80",
+  equipment: "https://plus.unsplash.com/premium_photo-1661353234726-655f7990e5dd?auto=format&fit=crop&w=1200&q=80",
+  studio: "https://images.unsplash.com/photo-1742367539759-6e4fc2e39209?auto=format&fit=crop&w=1200&q=80",
 
   // --- Patient Testimonials ---
   patient1: "https://plus.unsplash.com/premium_photo-1664888035613-a6c75aa15b01?auto=format&fit=crop&w=800&q=80",

@@ -86,13 +86,6 @@ function TreatmentCard({
             <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </span>
         </div>
-
-        {/* Label */}
-        <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 pointer-events-none">
-          <span className="inline-block px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-skinmed-charcoal/40 backdrop-blur-md border border-white/15 text-[8px] sm:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.22em] text-skinmed-ivory font-semibold">
-            Signature
-          </span>
-        </div>
       </div>
 
       {/* Caption */}

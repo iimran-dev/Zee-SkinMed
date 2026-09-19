@@ -96,71 +96,72 @@ function BeforeAfterSlider() {
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="relative aspect-[4/5] sm:aspect-[3/4] w-full select-none overflow-hidden rounded-2xl border border-skinmed-line shadow-[0_30px_80px_-30px_rgba(23,23,23,0.35)]"
-      onPointerDown={startDrag}
-      onKeyDown={onKey}
-      role="slider"
-      tabIndex={0}
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-valuenow={Math.round(pos)}
-      aria-label="Before and after comparison slider. Drag or use arrow keys."
-      style={{ touchAction: "pan-y" }}
-    >
-      {/* AFTER (full base image) */}
-      <Image
-        src={IMG.after}
-        alt="After treatment — healthy, radiant skin"
-        fill
-        sizes="(min-width: 1024px) 600px, 100vw"
-        className="object-cover pointer-events-none"
-        draggable={false}
-      />
-      <div className="absolute top-4 right-4 z-20 rounded-full bg-skinmed-gold px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-skinmed-charcoal">
-        After
-      </div>
-
-      {/* BEFORE (clipped overlay) */}
+    <div className="w-full">
       <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        style={{ width: `${pos}%` }}
+        ref={containerRef}
+        className="relative aspect-[3/4] w-full select-none overflow-hidden rounded-2xl border border-skinmed-line shadow-[0_30px_80px_-30px_rgba(23,23,23,0.35)]"
+        onPointerDown={startDrag}
+        onKeyDown={onKey}
+        role="slider"
+        tabIndex={0}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(pos)}
+        aria-label="Before and after comparison slider. Drag or use arrow keys."
+        style={{ touchAction: "pan-y" }}
       >
-        <div className="relative h-full w-full" style={{ width: `${100 / (pos / 100)}%` }}>
-          <Image
-            src={IMG.before}
-            alt="Before treatment — visible skin concerns"
-            fill
-            sizes="(min-width: 1024px) 600px, 100vw"
-            className="object-cover"
-            draggable={false}
-          />
-          <div className="absolute top-4 left-4 z-20 rounded-full bg-skinmed-charcoal px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-skinmed-ivory">
-            Before
+        {/* AFTER (full base image) */}
+        <Image
+          src={IMG.after}
+          alt="After treatment — healthy, radiant skin"
+          fill
+          sizes="(min-width: 1024px) 600px, 100vw"
+          className="object-cover pointer-events-none"
+          priority
+          draggable={false}
+        />
+
+        {/* BEFORE (clipped overlay) */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none"
+          style={{ width: `${pos}%` }}
+        >
+          <div className="relative h-full w-full" style={{ width: `${100 / (pos / 100)}%` }}>
+            <Image
+              src={IMG.before}
+              alt="Before treatment — visible skin concerns"
+              fill
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="object-cover"
+              priority
+              draggable={false}
+            />
+
           </div>
+        </div>
+
+        {/* Drag handle */}
+        <div
+          className="absolute top-0 bottom-0 z-30 flex items-center justify-center cursor-ew-resize"
+          style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
+        >
+          <div className="absolute top-0 bottom-0 w-0.5 bg-skinmed-gold shadow-[0_0_12px_rgba(201,165,92,0.8)]" />
+          <span
+            className="relative flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-skinmed-white border-2 border-skinmed-gold shadow-[0_8px_24px_-4px_rgba(0,0,0,0.35)] transition-transform hover:scale-110 active:scale-95"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4 text-skinmed-charcoal">
+              <path d="M9 7l-5 5 5 5M15 7l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </div>
 
-      {/* Drag handle */}
-      <div
-        className="absolute top-0 bottom-0 z-30 flex items-center justify-center"
-        style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
-      >
-        <div className="absolute top-0 bottom-0 w-px bg-skinmed-gold/80" />
-        <span
-          className="relative flex h-12 w-12 items-center justify-center rounded-full bg-skinmed-white border border-skinmed-gold shadow-[0_8px_24px_-6px_rgba(0,0,0,0.35)] transition-transform hover:scale-110"
-          aria-hidden="true"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5 text-skinmed-charcoal">
-            <path d="M9 7l-5 5 5 5M15 7l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-      </div>
-
-      {/* Caption */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 rounded-full bg-skinmed-charcoal/80 backdrop-blur-sm px-4 py-1.5 text-[10px] uppercase tracking-[0.22em] text-skinmed-ivory/90">
-        Drag to compare
+      {/* Interaction cue below the card */}
+      <div className="mt-3.5 flex items-center justify-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-skinmed-text-muted font-medium select-none">
+        <span className="inline-block w-4 h-px bg-skinmed-gold/50" />
+        <span>Drag slider to compare</span>
+        <span className="inline-block w-4 h-px bg-skinmed-gold/50" />
       </div>
     </div>
   );
