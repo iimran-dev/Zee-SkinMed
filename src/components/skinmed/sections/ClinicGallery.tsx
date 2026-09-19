@@ -22,7 +22,6 @@ type ClinicSpace = {
   id: string;
   src: string;
   alt: string;
-  tag: string;
   category: "clinical" | "sanctuary";
   dimensions: string;
   specs: { label: string; value: string }[];
@@ -33,7 +32,6 @@ const CLINIC_SPACES: ClinicSpace[] = [
     id: "reception",
     src: IMG.reception,
     alt: "Reception and welcome lounge of Dr Zee's SKINMED clinic",
-    tag: "The Arrival",
     category: "sanctuary",
     dimensions: "Panoramic Sanctuary",
     specs: [
@@ -46,8 +44,6 @@ const CLINIC_SPACES: ClinicSpace[] = [
     id: "treatmentRoom",
     src: IMG.treatmentRoom,
     alt: "Modern dermatology clinical treatment suite",
-  
-    tag: "Precision Care",
     category: "clinical",
     dimensions: "Suite 01",
     specs: [
@@ -60,7 +56,6 @@ const CLINIC_SPACES: ClinicSpace[] = [
     id: "consult",
     src: IMG.consult,
     alt: "Private doctor consultation lounge",
-    tag: "Unhurried Dialogue",
     category: "sanctuary",
     dimensions: "Consultation",
     specs: [
@@ -73,7 +68,6 @@ const CLINIC_SPACES: ClinicSpace[] = [
     id: "equipment",
     src: IMG.equipment,
     alt: "FDA-approved energy and laser medical aesthetic technology",
-    tag: "FDA Certified",
     category: "clinical",
     dimensions: "Energy Workstation",
     specs: [
@@ -86,7 +80,6 @@ const CLINIC_SPACES: ClinicSpace[] = [
     id: "studio",
     src: IMG.studio,
     alt: "Skin renewal studio and post-care replenishment space",
-    tag: "Post-Treatment",
     category: "sanctuary",
     dimensions: "Recovery Studio",
     specs: [
@@ -163,90 +156,8 @@ export function ClinicGallery() {
             </Reveal>
           </div>
         </div>
-
-        {/* Interactive Controls Bar: Category Filters & Display Layout Selector */}
-        <Reveal delay={0.2}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 sm:mb-10 border-b border-skinmed-line/50">
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setActiveCategory("all")}
-                className={`text-xs font-medium px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === "all"
-                    ? "bg-skinmed-charcoal text-white shadow-sm"
-                    : "bg-white/80 hover:bg-white text-skinmed-text border border-skinmed-line/60"
-                }`}
-              >
-                All Spaces <span className="ml-1 opacity-60 text-[11px] font-mono">({CLINIC_SPACES.length})</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveCategory("clinical")}
-                className={`text-xs font-medium px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === "clinical"
-                    ? "bg-skinmed-charcoal text-white shadow-sm"
-                    : "bg-white/80 hover:bg-white text-skinmed-text border border-skinmed-line/60"
-                }`}
-              >
-                Clinical Suites <span className="ml-1 opacity-60 text-[11px] font-mono">(2)</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveCategory("sanctuary")}
-                className={`text-xs font-medium px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === "sanctuary"
-                    ? "bg-skinmed-charcoal text-white shadow-sm"
-                    : "bg-white/80 hover:bg-white text-skinmed-text border border-skinmed-line/60"
-                }`}
-              >
-                Sanctuary &amp; Recovery <span className="ml-1 opacity-60 text-[11px] font-mono">(3)</span>
-              </button>
-            </div>
-
-            {/* Display Layout Switcher */}
-            <div className="flex items-center gap-1 self-start sm:self-auto bg-white/80 p-1 rounded-full border border-skinmed-line/60 shadow-xs">
-              <span className="text-[11px] uppercase tracking-wider text-skinmed-text-muted font-medium px-3 hidden lg:inline-block">
-                Layout:
-              </span>
-              <button
-                type="button"
-                onClick={() => setDisplayLayout("bento")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                  displayLayout === "bento"
-                    ? "bg-skinmed-gold text-skinmed-charcoal font-semibold shadow-xs"
-                    : "text-skinmed-text hover:text-skinmed-charcoal hover:bg-skinmed-beige/50"
-                }`}
-                aria-label="Switch to Bento Grid layout"
-              >
-                <LayoutGrid className="h-3.5 w-3.5" />
-                <span>Bento Grid</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setDisplayLayout("cinematic")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                  displayLayout === "cinematic"
-                    ? "bg-skinmed-gold text-skinmed-charcoal font-semibold shadow-xs"
-                    : "text-skinmed-text hover:text-skinmed-charcoal hover:bg-skinmed-beige/50"
-                }`}
-                aria-label="Switch to Cinematic layout"
-              >
-                <Columns2 className="h-3.5 w-3.5" />
-                <span>Cinematic</span>
-              </button>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* =============================================================
-            LANDSCAPE BENTO GRID DISPLAY LAYOUTS
-            ============================================================= */}
         <AnimatePresence mode="wait">
           {displayLayout === "bento" ? (
-            /* -------------------------------------------------------------
-               LAYOUT 1: LANDSCAPE BENTO GRID (2 Dominant + 3 Balanced)
-               ------------------------------------------------------------- */
             <motion.div
               key={`bento-${activeCategory}`}
               initial={{ opacity: 0, y: 12 }}
@@ -465,44 +376,15 @@ function LandscapeBentoCard({
           }
           className="object-cover object-center transition-transform duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
         />
-
-        {/* Dual Cinematic Scrim Gradients */}
-        {/* Top Scrim for crisp badge contrast */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/75 via-black/30 to-transparent" />
-
         {/* Bottom Scrim for editorial typography legibility */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 sm:h-52 bg-gradient-to-t from-black/92 via-black/55 to-transparent" />
-
-        {/* Ambient Gold Glow Tint on Hover */}
-        <div className="pointer-events-none absolute inset-0 bg-skinmed-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* -------------------------------------------------------------
-            TOP FLOATING BADGES
-            ------------------------------------------------------------- */}
-        <div className="absolute top-3.5 sm:top-5 inset-x-3.5 sm:inset-x-5 flex items-center justify-between z-10">
-          <div className="flex items-center gap-2">
-          </div>
-        </div>
-
         {/* -------------------------------------------------------------
             BOTTOM CONTENT OVERLAY
             ------------------------------------------------------------- */}
         <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 lg:p-7 z-10 flex flex-col justify-end">
-          {/* Eyebrow Tag */}
-          <div className="flex items-center gap-2 mb-1 sm:mb-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-skinmed-gold" />
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-skinmed-gold font-semibold">
-              {space.tag}
-            </span>
-            <span className="text-white/40 text-xs hidden sm:inline">•</span>
-          </div>
-          {/* Interactive Footer Cue with Specifications */}
-          <div className="mt-3 sm:mt-3.5 pt-2.5 sm:pt-3 border-t border-white/15 flex items-center justify-between text-xs">
-            <span className="text-[11px] font-medium text-skinmed-gold group-hover:text-white transition-colors flex items-center gap-1.5">
-              <span>Explore Suite Specs</span>
-              <ChevronRight className="h-3.5 w-3.5 transform group-hover:translate-x-1 transition-transform" />
-            </span>
 
+          {/* Interactive Footer Cue with Specifications */}
+          <div className="mt-3 sm:mt-3.5 pt-2.5 sm:pt-3 flex items-center justify-between text-xs">
             {/* Quick Spec Badge */}
             <span className="text-[10px] font-mono text-white/60 tracking-wider hidden sm:inline-block bg-white/10 px-2 py-0.5 rounded">
               {space.specs[0]?.label}: {space.specs[0]?.value}
