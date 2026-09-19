@@ -2,10 +2,29 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Container, Reveal } from "../primitives";
 import { BRAND, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/skinmed/content";
 import { CLINIC_LOCATION } from "@/lib/skinmed/content";
+
+function getSocialIcon(label: string) {
+  switch (label.toLowerCase()) {
+    case "instagram":
+      return <Instagram className="h-4 w-4" />;
+    case "facebook":
+      return <Facebook className="h-4 w-4" />;
+    case "youtube":
+      return <Youtube className="h-4 w-4" />;
+    case "whatsapp":
+      return (
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+          <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -149,16 +168,17 @@ export function Footer() {
               <h4 className="text-[10px] uppercase tracking-[0.22em] text-skinmed-gold mb-4">
                 Follow Us
               </h4>
-              <ul className="flex flex-wrap gap-2">
+              <ul className="flex flex-wrap items-center gap-2.5">
                 {SOCIAL_LINKS.map((s) => (
                   <li key={s.label}>
                     <a
                       href={s.href}
                       target={s.href.startsWith("http") ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="inline-flex h-10 items-center px-4 rounded-full border border-skinmed-ivory/20 text-[10px] uppercase tracking-[0.18em] text-skinmed-ivory/80 hover:border-skinmed-gold hover:text-skinmed-gold transition-colors"
+                      aria-label={`Follow Dr Zee's SKINMED on ${s.label}`}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-skinmed-ivory/20 text-skinmed-ivory/80 hover:border-skinmed-gold hover:text-skinmed-gold hover:bg-skinmed-gold/10 transition-all duration-300 group"
                     >
-                      {s.label}
+                      {getSocialIcon(s.label)}
                     </a>
                   </li>
                 ))}

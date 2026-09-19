@@ -1,447 +1,235 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Activity, ArrowRight, Camera, CheckCircle2, Eye, Loader2, Scan, ShieldCheck, Sparkles, Upload, X } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Container, Eyebrow, Reveal, Section } from "../primitives";
-import { BRAND, SKIN_CONCERNS } from "@/lib/skinmed/content";
 import { IMG } from "@/lib/skinmed/images";
 
-type Severity = "low" | "moderate" | "high";
+type Severity = "optimal" | "moderate";
 
 type Marker = {
+  id: string;
   label: string;
   severity: Severity;
+  severityLabel: string;
   note: string;
   x: number;
   y: number;
-  treatment?: string;
-  score?: number;
+  treatment: string;
+  score: number;
 };
 
-type AnalysisResult = {
-  ok: boolean;
-  summary?: string;
-  concerns?: Marker[];
-  disclaimer?: string;
-  overallScore?: number;
-  metrics?: { label: string; value: number; status: string }[];
-  recommendation?: string;
-  error?: string;
-};
-
-const DEFAULT_MARKERS: Marker[] = [
+const MARKERS: Marker[] = [
   {
+    id: "pigmentation",
     label: "Pigmentation",
     severity: "moderate",
-    note: "Mild sun-induced tone variations across the malar cheek area.",
+    severityLabel: "Moderate Tone Variation",
+    note: "Mild sun-induced tone variations across the malar cheek area. Responds best to gentle exfoliation and brightening actives.",
     x: 63,
     y: 49,
     treatment: "Pigmentation Correction",
-    score: 72,
+    score: 74,
   },
   {
+    id: "hydration",
     label: "Hydration & Pores",
-    severity: "low",
-    note: "Healthy skin barrier with balanced natural lipid mantle.",
+    severity: "optimal",
+    severityLabel: "Balanced Barrier",
+    note: "Healthy skin barrier with balanced lipid mantle and refined pore architecture throughout the mid-face.",
     x: 37,
     y: 54,
     treatment: "Medi-Facials & Peels",
-    score: 89,
-  },
-  {
-    label: "Tone Uniformity",
-    severity: "low",
-    note: "Luminous epidermal clarity with high light reflectance.",
-    x: 32,
-    y: 42,
-    treatment: "Skin Rejuvenation",
     score: 91,
   },
   {
+    id: "tone",
+    label: "Tone Uniformity",
+    severity: "optimal",
+    severityLabel: "High Epidermal Clarity",
+    note: "High natural light reflectance with smooth cellular turnover across the upper cheekbone plane.",
+    x: 32,
+    y: 42,
+    treatment: "Skin Rejuvenation",
+    score: 88,
+  },
+  {
+    id: "expression",
     label: "Expression Lines",
-    severity: "low",
-    note: "Youthful dermal elasticity with micro-smooth forehead texture.",
+    severity: "optimal",
+    severityLabel: "Youthful Elasticity",
+    note: "Preserved dermal collagen structure with micro-smooth forehead texture and minimal dynamic creasing.",
     x: 62,
     y: 33,
     treatment: "Anti-Aging Solutions",
-    score: 94,
+    score: 93,
   },
   {
+    id: "tzone",
     label: "T-Zone Clarity",
     severity: "moderate",
-    note: "Subtle sebum activity around the lower jawline and chin.",
+    severityLabel: "Localized Congestion",
+    note: "Subtle sebum activity around the lower jawline and chin. Calibrated extractions and salicylic peel recommended.",
     x: 50,
     y: 69,
     treatment: "Acne & Acne Scars",
-    score: 78,
+    score: 79,
   },
 ];
 
-const SEVERITY_CONFIG: Record<
-  Severity,
-  { bg: string; text: string; border: string; glow: string }
-> = {
-  low: {
-    bg: "bg-emerald-500/20",
-    text: "text-emerald-400",
-    border: "border-emerald-500/40",
-    glow: "rgba(52, 211, 153, 0.6)",
-  },
-  moderate: {
-    bg: "bg-amber-500/20",
-    text: "text-amber-400",
-    border: "border-amber-500/40",
-    glow: "rgba(245, 158, 11, 0.6)",
-  },
-  high: {
-    bg: "bg-rose-500/20",
-    text: "text-rose-400",
-    border: "border-rose-500/40",
-    glow: "rgba(244, 63, 94, 0.6)",
-  },
-};
-
 export function AISkinAnalysis() {
-  const reduce = useReducedMotion();
-  const [active, setActive] = useState<string | null>(null);
-  const [scanning, setScanning] = useState(false);
-  const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
-  const [result, setResult] = useState<AnalysisResult | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // Trigger automated demo scan on button click
-  const runDemoScan = () => {
-    setError(null);
-    setScanning(true);
-    setLoading(true);
-    setActive(null);
-
-    setTimeout(() => {
-      setScanning(false);
-      setLoading(false);
-      setResult({
-        ok: true,
-        overallScore: 88,
-        summary:
-          "High dermal luminosity detected. Skin barrier is resilient with excellent cellular hydration. Mild localized pigmentation noted near cheekbones.",
-        recommendation:
-          "Targeted Vitamin C infusion protocol paired with Dr Zee's signature Hydra-Glow Peel.",
-        metrics: [
-          { label: "Radiance & Clarity", value: 91, status: "Optimal" },
-          { label: "Barrier Moisture", value: 86, status: "Balanced" },
-          { label: "Pore Refinement", value: 88, status: "Clear" },
-        ],
-        concerns: DEFAULT_MARKERS,
-        disclaimer:
-          "Informational preview calibrated to clinical aesthetic protocols. Not a medical diagnosis.",
-      });
-      // Automatically highlight first concern for discovery
-      setActive(DEFAULT_MARKERS[0].label);
-    }, 2800);
-  };
-
-  const handleFile = useCallback(async (file: File) => {
-    setError(null);
-    setResult(null);
-    setActive(null);
-    if (!file.type.startsWith("image/")) {
-      setError("Please upload a JPEG or PNG image.");
-      return;
-    }
-    if (file.size > 8 * 1024 * 1024) {
-      setError("Image is too large (max 8 MB).");
-      return;
-    }
-    const url = URL.createObjectURL(file);
-    setUploadedUrl(url);
-    setScanning(true);
-    setLoading(true);
-
-    try {
-      const fd = new FormData();
-      fd.append("image", file);
-      const res = await fetch("/api/skin-analysis", { method: "POST", body: fd });
-      const data: AnalysisResult = await res.json();
-      if (!data.ok) {
-        setError(data.error ?? "Could not analyse the photo.");
-      } else {
-        const withPos: Marker[] = (data.concerns ?? []).slice(0, 5).map((c, i) => {
-          const preset = DEFAULT_MARKERS[i % DEFAULT_MARKERS.length];
-          return {
-            ...c,
-            x: preset.x,
-            y: preset.y,
-            treatment: preset.treatment,
-            score: Math.floor(75 + Math.random() * 20),
-          };
-        });
-        setResult({
-          ...data,
-          concerns: withPos,
-          overallScore: 87,
-          metrics: [
-            { label: "Radiance & Clarity", value: 89, status: "High" },
-            { label: "Barrier Moisture", value: 84, status: "Normal" },
-            { label: "Pore Refinement", value: 87, status: "Refined" },
-          ],
-        });
-      }
-    } catch (e) {
-      console.error(e);
-      setError("Network error — please try again.");
-    } finally {
-      setLoading(false);
-      setScanning(false);
-    }
-  }, []);
-
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) void handleFile(file);
-    e.target.value = "";
-  };
-
-  const reset = () => {
-    if (uploadedUrl) URL.revokeObjectURL(uploadedUrl);
-    setUploadedUrl(null);
-    setResult(null);
-    setError(null);
-    setActive(null);
-  };
-
-  const currentMarkers = result?.concerns?.length ? result.concerns : DEFAULT_MARKERS;
-  const activeMarker = currentMarkers.find((m) => m.label === active);
+  const [activeId, setActiveId] = useState<string>("pigmentation");
+  const activeMarker = MARKERS.find((m) => m.id === activeId) ?? MARKERS[0];
 
   return (
-    <Section id="ai-analysis" className="relative overflow-hidden bg-[#FBF9F5] py-16 sm:py-24 md:py-32">
-      {/* Background architectural aura */}
-      <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-skinmed-gold/5 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 left-0 h-[500px] w-[500px] rounded-full bg-skinmed-gold/5 blur-3xl" />
-
+    <Section id="ai-analysis" className="relative bg-[#FAF7F2] py-12 sm:py-16 md:py-20 overflow-hidden">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Clinical Copy & Actions */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Clinical Copy & Dynamic Zone Report (6 cols) */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
             <Reveal>
-              <Eyebrow className="mb-4 sm:mb-5">Vision Intelligence</Eyebrow>
+              <Eyebrow className="mb-2 sm:mb-3">Vision Intelligence</Eyebrow>
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h2 className="section-heading text-[2.25rem] sm:text-[3rem] md:text-[3.6rem] font-semibold leading-[1.02] text-skinmed-charcoal">
-                Precision Skin
-                <span className="block font-serif italic text-skinmed-gold mt-1">
+              <h2 className="section-heading text-2xl sm:text-3xl md:text-[2.25rem] font-semibold leading-[1.1] text-skinmed-charcoal">
+                Precision Skin{" "}
+                <span className="block font-serif italic text-skinmed-gold font-normal">
                   Mapping &amp; Diagnostics
                 </span>
               </h2>
             </Reveal>
 
-            <Reveal delay={0.16}>
-              <p className="mt-5 sm:mt-6 text-[14.5px] sm:text-[15.5px] leading-relaxed text-skinmed-text font-medium">
-                Calibrated to Dr. Zeenath Begum&apos;s clinical dermatology protocols. Experience
-                biometric facial mapping that detects subtle variations in hydration, texture, and
-                pigmentation.
+            <Reveal delay={0.14}>
+              <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-skinmed-text font-medium max-w-lg">
+                Calibrated to Dr. Zeenath Begum&apos;s clinical dermatology protocols. Select any
+                biometric marker on the console to inspect localized dermal readings and targeted corrective protocols.
               </p>
             </Reveal>
 
-            {/* AI Diagnostics Report Card */}
-            <AnimatePresence mode="wait">
-              {result && (
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-8 rounded-2xl bg-white/95 backdrop-blur-md border border-skinmed-gold/30 p-5 sm:p-6 shadow-[0_16px_40px_-16px_rgba(23,23,23,0.12)]"
-                >
-                  <div className="flex items-center justify-between border-b border-skinmed-line/80 pb-3.5 mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-skinmed-gold/20 text-skinmed-gold">
-                        <CheckCircle2 className="h-4 w-4" />
-                      </span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-skinmed-charcoal">
-                        Diagnostic Overview
-                      </span>
-                    </div>
-                    {result.overallScore && (
-                      <div className="flex items-center gap-1.5 rounded-full bg-skinmed-charcoal text-skinmed-gold px-3 py-1 text-xs font-semibold tracking-wide">
-                        <Sparkles className="h-3 w-3 text-skinmed-gold" />
-                        <span>Score: {result.overallScore}/100</span>
-                      </div>
-                    )}
-                  </div>
+            {/* Interactive Zone Filter Tabs */}
+            <Reveal delay={0.18} className="mt-4 sm:mt-5">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {MARKERS.map((m) => {
+                  const isSelected = activeId === m.id;
+                  return (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => setActiveId(m.id)}
+                      className={`rounded-full px-3 py-1.5 text-xs font-medium tracking-wide transition-all ${
+                        isSelected
+                          ? "bg-skinmed-charcoal text-skinmed-gold shadow-xs font-semibold"
+                          : "bg-white/80 text-skinmed-charcoal/75 border border-skinmed-line/80 hover:bg-white hover:text-skinmed-charcoal"
+                      }`}
+                    >
+                      {m.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </Reveal>
 
-                  {/* Summary */}
+            {/* Dynamic Active Zone Finding Card */}
+            <Reveal delay={0.22} className="mt-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeMarker.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-2xl border border-skinmed-line bg-white p-5 shadow-xs"
+                >
+
                   <p className="text-xs sm:text-[13px] leading-relaxed text-skinmed-text font-medium">
-                    {result.summary}
+                    {activeMarker.note}
                   </p>
 
-                  {/* Metric Progress Bars */}
-                  {result.metrics && (
-                    <div className="mt-4 space-y-2.5">
-                      {result.metrics.map((m) => (
-                        <div key={m.label} className="text-xs">
-                          <div className="flex justify-between font-medium text-skinmed-charcoal mb-1">
-                            <span>{m.label}</span>
-                            <span className="text-skinmed-gold font-semibold">{m.value}% • {m.status}</span>
-                          </div>
-                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-skinmed-beige">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${m.value}%` }}
-                              transition={{ duration: 0.8, ease: "easeOut" }}
-                              className="h-full rounded-full bg-skinmed-gold"
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Doctor Recommendation */}
-                  {result.recommendation && (
-                    <div className="mt-4 rounded-xl bg-skinmed-beige/60 p-3 text-xs text-skinmed-charcoal border border-skinmed-line/60">
-                      <span className="font-semibold text-skinmed-gold block uppercase tracking-wider text-[10px] mb-0.5">
-                        Clinical Recommendation:
-                      </span>
-                      {result.recommendation}
-                    </div>
-                  )}
-
-                  {/* WhatsApp Direct */}
                   <div className="mt-4 pt-3 border-t border-skinmed-line/60 flex items-center justify-between">
-                    <span className="text-[11px] text-skinmed-text-muted">
-                      Discuss these findings with Dr Zee:
-                    </span>
+                    <div className="text-xs">
+                      <span className="text-skinmed-text-muted mr-1.5">Target Protocol:</span>
+                      <span className="font-semibold text-skinmed-charcoal">{activeMarker.treatment}</span>
+                    </div>
+
                     <a
-                      href={BRAND.whatsappHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[#1DA851] hover:underline"
+                      href="#contact"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-skinmed-gold hover:text-skinmed-gold-dark transition-colors"
                     >
-                      Chat on WhatsApp →
+                      <span>Consult Dr Zee</span>
+                      <ArrowRight className="h-3 w-3" />
                     </a>
                   </div>
                 </motion.div>
-              )}
-
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12 }}
-                  className="mt-6 rounded-xl bg-red-50 border border-red-200 p-4 text-xs font-medium text-red-700"
-                >
-                  {error}
-                </motion.div>
-              )}
-            </AnimatePresence>
+              </AnimatePresence>
+            </Reveal>
           </div>
 
-          {/* Right Column: Interactive Clinical Diagnostic Console */}
-          <div className="lg:col-span-7">
-            <Reveal>
-              <div className="relative mx-auto w-full max-w-[500px] overflow-hidden rounded-3xl border border-skinmed-line bg-[#16171A] p-2.5 sm:p-3 shadow-[0_30px_90px_-25px_rgba(18,19,22,0.65)]">
-
+          {/* Right Column: Compact Clinical Biometric Face Console (6 cols) */}
+          <div className="lg:col-span-6">
+            <Reveal delay={0.1}>
+              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[400px] overflow-hidden rounded-2xl border border-skinmed-line bg-[#151619] p-2 shadow-lg">
                 {/* Viewport Box */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
-                  {/* Base Image */}
-                  {uploadedUrl ? (
-                    <img
-                      src={uploadedUrl}
-                      alt="Your uploaded skin photo"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  ) : (
-                    <Image
-                      src={IMG.aiFace}
-                      alt="AI skin analysis interface showing clinical face mapping"
-                      fill
-                      priority
-                      sizes="(min-width: 1024px) 500px, 92vw"
-                      className="object-cover object-center"
-                    />
-                  )}
-
-                  {/* Contrast tint overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
-
-                  {/* Medical HUD Grid Overlay */}
-                  <div
-                    className="pointer-events-none absolute inset-0 opacity-15"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle, #C9A55C 1px, transparent 1px)",
-                      backgroundSize: "22px 22px",
-                    }}
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-black">
+                  <Image
+                    src={IMG.aiFace}
+                    alt="AI clinical biometric face mapping interface"
+                    fill
+                    sizes="(min-width: 1024px) 400px, 90vw"
+                    className="object-cover object-top"
+                    priority
                   />
 
-                  {/* Clinical Target Reticle Corners */}
-                  <div className="pointer-events-none absolute inset-5 sm:inset-7">
-                    <HUDCorners />
+                  {/* Subtle Central Reticle Crosshair */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-25">
+                    <div className="h-5 w-px bg-skinmed-gold" />
+                    <div className="w-5 h-px bg-skinmed-gold" />
                   </div>
-
-                  {/* Central Crosshair Alignment */}
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30">
-                    <div className="h-6 w-px bg-skinmed-gold" />
-                    <div className="w-6 h-px bg-skinmed-gold" />
-                  </div>
-
-                  {/* Animated Laser Scanning Beam */}
-                  {scanning && !reduce && (
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden z-20">
-                      {/* Laser Bar */}
-                      <motion.div
-                        animate={{ y: ["0%", "100%", "0%"] }}
-                        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative w-full"
-                      >
-                        <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#E5C378] to-transparent shadow-[0_0_18px_3px_rgba(229,195,120,0.9)]" />
-                        <div className="h-16 w-full bg-gradient-to-b from-skinmed-gold/25 to-transparent" />
-                      </motion.div>
-                    </div>
-                  )}
 
                   {/* Interactive Biometric Hotspots */}
-                  {currentMarkers.map((m) => {
-                    const isSelected = active === m.label;
-                    const conf = SEVERITY_CONFIG[m.severity];
+                  {MARKERS.map((m) => {
+                    const isSelected = activeId === m.id;
                     return (
                       <button
-                        key={m.label}
+                        key={m.id}
                         type="button"
-                        aria-label={`${m.label}: ${m.note}`}
-                        onClick={() => setActive(isSelected ? null : m.label)}
-                        className="group absolute z-30 focus:outline-none"
+                        aria-label={`Select ${m.label} zone`}
+                        onClick={() => setActiveId(m.id)}
+                        className="group absolute z-30 focus:outline-none cursor-pointer"
                         style={{
                           left: `${m.x}%`,
                           top: `${m.y}%`,
                           transform: "translate(-50%, -50%)",
                         }}
                       >
-                        {/* Radar pulse rings */}
+                        {/* Pulse Ring */}
                         <span className="relative flex h-6 w-6 items-center justify-center">
+                          {isSelected && (
+                            <span className="absolute h-full w-full rounded-full animate-ping bg-skinmed-gold/50 opacity-75" />
+                          )}
                           <span
-                            className={`absolute h-full w-full rounded-full animate-ping opacity-60 ${conf.bg}`}
-                          />
-                          <span
-                            className={`relative flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/80 shadow-md ${
-                              isSelected ? "scale-125 bg-skinmed-gold" : "bg-white/95"
-                            } transition-transform duration-300`}
+                            className={`relative flex h-3.5 w-3.5 items-center justify-center rounded-full border shadow-sm transition-all duration-300 ${
+                              isSelected
+                                ? "scale-125 bg-skinmed-gold border-white"
+                                : "bg-white/90 border-black/30 group-hover:bg-skinmed-gold group-hover:scale-110"
+                            }`}
                           >
-                            <span className="h-1.5 w-1.5 rounded-full bg-skinmed-charcoal" />
+                            <span
+                              className={`h-1.5 w-1.5 rounded-full ${
+                                isSelected ? "bg-skinmed-charcoal" : "bg-skinmed-gold"
+                              }`}
+                            />
                           </span>
                         </span>
 
                         {/* Floating Target Label */}
                         <span
-                          className={`absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap rounded-md px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider backdrop-blur-md transition-all duration-300 ${
+                          className={`absolute left-1/2 -translate-x-1/2 -top-5.5 whitespace-nowrap rounded px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider backdrop-blur-md transition-all duration-200 ${
                             isSelected
-                              ? "bg-skinmed-gold text-skinmed-charcoal shadow-md opacity-100"
-                              : "bg-black/75 text-white/90 opacity-70 group-hover:opacity-100"
+                              ? "bg-skinmed-gold text-skinmed-charcoal shadow-xs opacity-100"
+                              : "bg-black/70 text-white/80 opacity-0 group-hover:opacity-100"
                           }`}
                         >
                           {m.label}
@@ -449,108 +237,7 @@ export function AISkinAnalysis() {
                       </button>
                     );
                   })}
-
-                  {/* Active Zone Floating Telemetry Modal (Inside Viewport) */}
-                  <AnimatePresence>
-                    {activeMarker && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 12, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 12, scale: 0.96 }}
-                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-x-3 bottom-3 z-40 rounded-2xl bg-[#1E2024]/95 backdrop-blur-xl border border-skinmed-gold/40 p-4 shadow-2xl text-skinmed-ivory"
-                      >
-                        <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-2.5 mb-2.5">
-                          <div>
-                            <div className="flex items-center gap-2">
-                              <span className="font-serif text-sm font-semibold text-skinmed-gold">
-                                {activeMarker.label}
-                              </span>
-                              <span
-                                className={`rounded px-1.5 py-0.5 text-[8px] font-mono uppercase tracking-wider ${
-                                  SEVERITY_CONFIG[activeMarker.severity].bg
-                                } ${SEVERITY_CONFIG[activeMarker.severity].text}`}
-                              >
-                                {activeMarker.severity} severity
-                              </span>
-                            </div>
-                            <span className="text-[10px] text-skinmed-ivory/60 font-mono mt-0.5 block">
-                              ZONE ID: {activeMarker.x}°E • {activeMarker.y}°N
-                            </span>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => setActive(null)}
-                            className="rounded-full p-1 text-white/60 hover:text-white hover:bg-white/10 transition-colors"
-                            aria-label="Close detail view"
-                          >
-                            <X className="h-4 w-4" />
-                          </button>
-                        </div>
-
-                        <p className="text-xs leading-relaxed text-skinmed-ivory/85 font-normal">
-                          {activeMarker.note}
-                        </p>
-
-                        {activeMarker.treatment && (
-                          <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between">
-                            <span className="text-[10px] uppercase tracking-wider text-skinmed-gold font-semibold">
-                              Target Protocol:
-                            </span>
-                            <a
-                              href="#treatments"
-                              className="inline-flex items-center gap-1 text-xs font-semibold text-white hover:text-skinmed-gold transition-colors"
-                            >
-                              <span>{activeMarker.treatment}</span>
-                              <ArrowRight className="h-3 w-3" />
-                            </a>
-                          </div>
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Reset upload button */}
-                  {uploadedUrl && (
-                    <button
-                      type="button"
-                      onClick={reset}
-                      aria-label="Clear uploaded photo"
-                      className="absolute top-3 right-3 z-40 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black transition-colors"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  )}
                 </div>
-
-                {/* Interactive Diagnostic Zone Selector Tabs */}
-                <div className="mt-3 flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-                  {currentMarkers.map((m) => {
-                    const isSelected = active === m.label;
-                    return (
-                      <button
-                        key={m.label}
-                        type="button"
-                        onClick={() => setActive(isSelected ? null : m.label)}
-                        className={`shrink-0 rounded-lg px-2.5 py-1.5 text-[10px] font-medium tracking-wide transition-all ${
-                          isSelected
-                            ? "bg-skinmed-gold text-skinmed-charcoal font-semibold shadow-xs"
-                            : "bg-[#202227] text-skinmed-ivory/80 hover:bg-[#2A2D33] hover:text-skinmed-ivory"
-                        }`}
-                      >
-                        {m.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Bottom Verification Guarantee */}
-            <Reveal delay={0.16} className="mt-4">
-              <div className="flex items-center justify-center gap-2 text-[11px] text-skinmed-text-muted">
-                <ShieldCheck className="h-3.5 w-3.5 text-skinmed-gold" />
-                <span>Zero images stored permanently • Private &amp; HIPAA-conscious</span>
               </div>
             </Reveal>
           </div>
@@ -561,14 +248,13 @@ export function AISkinAnalysis() {
 }
 
 function HUDCorners() {
-  const c = "absolute h-5 w-5 border-skinmed-gold/90";
+  const c = "absolute h-3.5 w-3.5 border-skinmed-gold/80";
   return (
     <>
-      <span className={`${c} top-0 left-0 border-l-2 border-t-2`} />
-      <span className={`${c} top-0 right-0 border-r-2 border-t-2`} />
-      <span className={`${c} bottom-0 left-0 border-l-2 border-b-2`} />
-      <span className={`${c} bottom-0 right-0 border-r-2 border-b-2`} />
+      <span className={`${c} top-0 left-0 border-l border-t`} />
+      <span className={`${c} top-0 right-0 border-r border-t`} />
+      <span className={`${c} bottom-0 left-0 border-l border-b`} />
+      <span className={`${c} bottom-0 right-0 border-r border-b`} />
     </>
   );
 }
-
