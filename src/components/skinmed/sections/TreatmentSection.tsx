@@ -16,16 +16,19 @@ export function TreatmentSection() {
               <Eyebrow className="mb-3 sm:mb-5">Our Signature</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="section-heading text-[2rem] sm:text-[3rem] md:text-[3.75rem] leading-[1.02] text-skinmed-charcoal">
-                Treatments
+              <h2 className="section-heading text-[2.25rem] sm:text-[3rem] md:text-[3.5rem] leading-[1.05] text-skinmed-charcoal font-semibold">
+                Clinical Treatments
+                <span className="block font-sans text-skinmed-gold font-normal mt-1 text-xl sm:text-2xl md:text-[2rem]">
+                  Evidence-based aesthetic protocols
+                </span>
               </h2>
             </Reveal>
           </div>
           <div className="md:col-span-5">
             <Reveal delay={0.16}>
-              <p className="text-xs sm:text-sm md:text-[15px] leading-relaxed text-skinmed-text font-medium md:text-right">
-                Comprehensive solutions for your skin, hair and nail concerns — each protocol
-                tailored to your skin's history and your goals.
+              <p className="text-xs sm:text-sm md:text-[15px] leading-relaxed text-skinmed-text font-normal md:text-right">
+                Comprehensive clinical protocols for skin, hair and anti-aging — each treatment
+                individualized to your dermatological profile and aesthetic goals.
               </p>
             </Reveal>
           </div>
@@ -36,7 +39,7 @@ export function TreatmentSection() {
           stagger={0.08}
         >
           {TREATMENTS.map((t) => (
-            <RevealStaggerItem key={t.id}>
+            <RevealStaggerItem key={t.id} className="treatment-card-gsap">
               <TreatmentCard treatment={t} reduce={reduce} />
             </RevealStaggerItem>
           ))}
@@ -91,10 +94,10 @@ function TreatmentCard({
       {/* Caption */}
       <div className="mt-3 sm:mt-4 text-left flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="font-serif text-sm sm:text-base md:text-[1.25rem] lg:text-[1.35rem] font-semibold text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold leading-snug line-clamp-2">
+          <h3 className="font-sans text-sm sm:text-base md:text-[1.15rem] font-semibold text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold leading-snug line-clamp-2">
             {treatment.title}
           </h3>
-          <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs md:text-[13px] leading-relaxed text-skinmed-text font-medium line-clamp-3 sm:line-clamp-none">
+          <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs md:text-[13px] leading-relaxed text-skinmed-text font-normal line-clamp-3 sm:line-clamp-none">
             {treatment.blurb}
           </p>
         </div>

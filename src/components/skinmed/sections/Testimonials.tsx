@@ -46,14 +46,14 @@ export function Testimonials() {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="group h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 flex flex-col justify-between transition-colors hover:border-skinmed-gold/35 hover:bg-white/[0.05]"
               >
-                {/* Patient Description / Testimonial */}
-                <blockquote className="font-serif text-base sm:text-[17px] text-skinmed-ivory/95 font-normal leading-relaxed italic">
+                {/* Patient Description / Testimonial — Google Sans 400 */}
+                <blockquote className="font-sans text-base sm:text-[17px] text-skinmed-ivory/95 font-normal leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 
-                {/* Patient Name */}
+                {/* Patient Name — Google Sans 600 */}
                 <figcaption className="mt-6 pt-4 border-t border-white/10">
-                  <span className="text-xs sm:text-[13px] font-medium text-skinmed-gold tracking-wide">
+                  <span className="font-sans text-xs sm:text-[13px] font-semibold text-skinmed-gold tracking-wide">
                     {t.name}
                   </span>
                 </figcaption>

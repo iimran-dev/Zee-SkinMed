@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -12,22 +12,51 @@ type RevealProps = {
 };
 
 /**
- * Premium, slow, intentional reveal-on-scroll wrapper.
- * Respects prefers-reduced-motion automatically.
+ * Premium, bulletproof reveal-on-scroll wrapper.
+ * Guarantees elements are NEVER stuck invisible if IntersectionObserver is throttled or during hash jumps.
  */
-export function Reveal({ children, delay = 0, y = 28, className, once = true }: RevealProps) {
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  className,
+  once = true,
+}: RevealProps) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isFallbackVisible, setIsFallbackVisible] = useState(false);
+
+  useEffect(() => {
+    // Safety check: if already inside or near viewport on mount (e.g. anchor navigation, reload)
+    const checkInView = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 150 && rect.bottom > -150) {
+          setIsFallbackVisible(true);
+        }
+      }
+    };
+
+    checkInView();
+    // Absolute fallback timer: never stay invisible longer than 1.2s after mount
+    const timer = setTimeout(() => setIsFallbackVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   if (reduce) {
     return <div className={className}>{children}</div>;
   }
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
+      animate={isFallbackVisible ? { opacity: 1, y: 0 } : undefined}
+      whileInView={!isFallbackVisible ? { opacity: 1, y: 0 } : undefined}
+      viewport={{ once, margin: "0px 0px -40px 0px", amount: 0.05 }}
       transition={{
-        duration: 0.9,
+        duration: 0.8,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
@@ -43,7 +72,7 @@ export function Reveal({ children, delay = 0, y = 28, className, once = true }: 
 export function RevealStagger({
   children,
   className,
-  stagger = 0.12,
+  stagger = 0.1,
   once = true,
 }: {
   children: ReactNode;
@@ -52,13 +81,34 @@ export function RevealStagger({
   once?: boolean;
 }) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isFallbackVisible, setIsFallbackVisible] = useState(false);
+
+  useEffect(() => {
+    const checkInView = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 150 && rect.bottom > -150) {
+          setIsFallbackVisible(true);
+        }
+      }
+    };
+
+    checkInView();
+    const timer = setTimeout(() => setIsFallbackVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   if (reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: "-80px" }}
+      animate={isFallbackVisible ? "visible" : undefined}
+      whileInView={!isFallbackVisible ? "visible" : undefined}
+      viewport={{ once, margin: "0px 0px -40px 0px", amount: 0.05 }}
       variants={{
         hidden: {},
         visible: {
@@ -71,9 +121,18 @@ export function RevealStagger({
   );
 }
 
-export function RevealStaggerItem({ children, className, y = 24 }: { children: ReactNode; className?: string; y?: number }) {
+export function RevealStaggerItem({
+  children,
+  className,
+  y = 20,
+}: {
+  children: ReactNode;
+  className?: string;
+  y?: number;
+}) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
       className={className}
@@ -82,7 +141,7 @@ export function RevealStaggerItem({ children, className, y = 24 }: { children: R
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+          transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
         },
       }}
     >
@@ -92,28 +151,49 @@ export function RevealStaggerItem({ children, className, y = 24 }: { children: R
 }
 
 /**
- * Image mask reveal — used for premium image entrance.
+ * Image reveal — smooth, luxury entrance that never clips or stays invisible.
  */
-export function MaskReveal({ children, className }: { children: ReactNode; className?: string }) {
+export function MaskReveal({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isFallbackVisible, setIsFallbackVisible] = useState(false);
+
+  useEffect(() => {
+    const checkInView = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 150 && rect.bottom > -150) {
+          setIsFallbackVisible(true);
+        }
+      }
+    };
+
+    checkInView();
+    const timer = setTimeout(() => setIsFallbackVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   if (reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
-      initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-      whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 24, scale: 0.98 }}
+      animate={isFallbackVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
+      whileInView={!isFallbackVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
+      viewport={{ once: true, margin: "0px 0px -40px 0px", amount: 0.05 }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
     >
-      <motion.div
-        className="relative h-full w-full"
-        initial={{ scale: 1.18 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-      >
+      <div className="relative h-full w-full">
         {children}
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

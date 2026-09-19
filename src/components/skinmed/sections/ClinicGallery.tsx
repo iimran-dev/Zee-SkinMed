@@ -141,7 +141,7 @@ export function ClinicGallery() {
             <Reveal delay={0.08}>
               <h2 className="section-heading text-[2.25rem] sm:text-[3.25rem] md:text-[4rem] leading-[1.02] text-skinmed-charcoal font-semibold">
                 Sanctuary &amp;
-                <span className="block font-serif italic text-skinmed-gold mt-1 font-normal">
+                <span className="block font-sans text-skinmed-gold mt-1 font-normal">
                   Clinical Discretion
                 </span>
               </h2>

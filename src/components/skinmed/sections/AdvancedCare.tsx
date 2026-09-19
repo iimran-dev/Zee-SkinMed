@@ -46,10 +46,10 @@ export function AdvancedCare() {
 
             {/* Video/story card */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "0px 0px -40px 0px", amount: 0.05 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative -mt-10 mx-auto max-w-[420px] rounded-2xl bg-skinmed-charcoal-soft border border-skinmed-gold/30 p-5 flex items-center gap-4"
             >
               <button

@@ -25,9 +25,10 @@ export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Treatments", href: "#treatments" },
-  { label: "Skin Concerns", href: "#ai-analysis" },
   { label: "Results", href: "#results" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Skin Analysis", href: "#ai-analysis" },
+  { label: "Clinic", href: "#gallery" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -259,9 +260,11 @@ export const FOOTER_LINKS = {
     { label: "Home", href: "#home" },
     { label: "About Dr Zee", href: "#about" },
     { label: "Treatments", href: "#treatments" },
-    { label: "Patient Stories", href: "#testimonials" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" },
+    { label: "Results", href: "#results" },
+    { label: "Skin Analysis", href: "#ai-analysis" },
+    { label: "The Clinic", href: "#gallery" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact & Location", href: "#contact" },
   ],
   ourTreatments: [
     { label: "Acne & Scars", href: "#treatments" },

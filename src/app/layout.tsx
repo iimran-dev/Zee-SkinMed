@@ -1,19 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { SmoothScroll } from "@/components/skinmed/SmoothScroll";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const googleSans = Google_Sans({
+  variable: "--font-google-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -69,9 +62,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${poppins.variable} antialiased bg-skinmed-ivory text-skinmed-charcoal font-sans`}
+        className={`${googleSans.variable} antialiased bg-skinmed-ivory text-skinmed-charcoal font-sans`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Toaster />
       </body>
     </html>

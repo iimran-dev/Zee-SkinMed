@@ -63,7 +63,7 @@ export function TrustStats() {
           <Eyebrow center className="mb-4">
             Trusted by Chennai
           </Eyebrow>
-          <p className="max-w-xl text-sm text-skinmed-text-muted leading-relaxed">
+          <p className="max-w-xl text-[15px] sm:text-base text-skinmed-text-muted leading-relaxed font-normal">
             A decade of considered, ethical dermatology — measured not in claims, but in
             the people who trust us with their skin.
           </p>
@@ -72,15 +72,17 @@ export function TrustStats() {
         <div className="grid grid-cols-2 gap-y-10 gap-x-4 md:grid-cols-4">
           {TRUST_STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08} className="text-center">
-              <div className="font-serif text-[2.75rem] md:text-[3.25rem] leading-none text-skinmed-charcoal">
+              {/* Stat number — Google Sans 600–700 */}
+              <div className="font-sans font-semibold text-[2.75rem] md:text-[3.25rem] leading-none text-skinmed-charcoal tracking-tight">
                 <Counter
                   to={s.value}
                   decimals={"decimals" in s ? (s as { decimals?: number }).decimals ?? 0 : 0}
                   suffix={s.suffix}
                 />
               </div>
-              <div className="mt-3 inline-block text-[10px] uppercase tracking-[0.22em] text-skinmed-text-muted">
-                <span className="block w-8 h-px bg-skinmed-gold mx-auto mb-3" />
+              {/* Supporting label — Google Sans 400–500 */}
+              <div className="mt-3 inline-block text-[11px] font-medium uppercase tracking-[0.14em] text-skinmed-text-muted">
+                <span className="block w-8 h-px bg-skinmed-gold mx-auto mb-2.5" />
                 {s.label}
               </div>
             </Reveal>

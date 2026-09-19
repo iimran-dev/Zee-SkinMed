@@ -96,7 +96,7 @@ export function AISkinAnalysis() {
             <Reveal delay={0.08}>
               <h2 className="section-heading text-2xl sm:text-3xl md:text-[2.25rem] font-semibold leading-[1.1] text-skinmed-charcoal">
                 Precision Skin{" "}
-                <span className="block font-serif italic text-skinmed-gold font-normal">
+                <span className="block font-sans text-skinmed-gold font-normal">
                   Mapping &amp; Diagnostics
                 </span>
               </h2>
@@ -170,7 +170,7 @@ export function AISkinAnalysis() {
           {/* Right Column: Compact Clinical Biometric Face Console (6 cols) */}
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[400px] overflow-hidden rounded-2xl border border-skinmed-line bg-[#151619] p-2 shadow-lg">
+              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[400px] overflow-hidden rounded-2xl p-2 shadow-lg">
                 {/* Viewport Box */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-black">
                   <Image

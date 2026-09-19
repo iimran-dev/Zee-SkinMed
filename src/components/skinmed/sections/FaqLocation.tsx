@@ -19,7 +19,7 @@ export function FaqLocation() {
             <Reveal delay={0.08}>
               <h2 className="section-heading text-2xl sm:text-3xl md:text-[2rem] leading-[1.1] text-skinmed-charcoal font-semibold">
                 Frequently{" "}
-                <span className="font-serif italic text-skinmed-gold font-normal">
+                <span className="font-sans text-skinmed-gold font-normal">
                   Asked Questions
                 </span>
               </h2>
@@ -38,7 +38,7 @@ export function FaqLocation() {
             <Reveal delay={0.08}>
               <h2 className="section-heading text-2xl sm:text-3xl md:text-[2rem] leading-[1.1] text-skinmed-charcoal font-semibold">
                 T. Nagar,{" "}
-                <span className="font-serif italic text-skinmed-gold font-normal">Chennai</span>
+                <span className="font-sans text-skinmed-gold font-normal">Chennai</span>
               </h2>
             </Reveal>
 
@@ -116,7 +116,7 @@ function Accordion({ items }: { items: { q: string; a: string }[] }) {
               aria-expanded={isOpen}
               onClick={() => setOpen(isOpen ? null : i)}
             >
-              <span className="font-serif text-sm sm:text-base text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold leading-snug">
+              <span className="font-sans font-medium text-sm sm:text-base text-skinmed-charcoal transition-colors group-hover:text-skinmed-gold leading-snug">
                 {item.q}
               </span>
               <span

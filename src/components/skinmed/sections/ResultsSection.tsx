@@ -19,7 +19,7 @@ export function ResultsSection() {
             <Reveal delay={0.08}>
               <h2 className="section-heading text-2xl sm:text-3xl md:text-[2.25rem] font-semibold leading-[1.1] text-skinmed-charcoal">
                 Visible Transformations,{" "}
-                <span className="block font-serif italic text-skinmed-gold font-normal">
+                <span className="block font-sans text-skinmed-gold font-normal">
                   Authentic Care
                 </span>
               </h2>

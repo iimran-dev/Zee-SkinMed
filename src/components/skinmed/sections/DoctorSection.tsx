@@ -9,12 +9,11 @@ import { IMG } from "@/lib/skinmed/images";
 
 export function DoctorSection() {
   const reduce = useReducedMotion();
-  const doctorSrc = IMG.doctor as string;
+  const doctorSrc: string = IMG.doctor;
   const hasDoctorImage = Boolean(
     doctorSrc &&
     doctorSrc !== "/" &&
-    !doctorSrc.startsWith("/") &&
-    (doctorSrc.startsWith("http://") || doctorSrc.startsWith("https://"))
+    (doctorSrc.startsWith("http://") || doctorSrc.startsWith("https://") || doctorSrc.startsWith("/images/"))
   );
 
   return (
@@ -23,10 +22,10 @@ export function DoctorSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
           {/* Portrait / Luxury Placeholder — asymmetric editorial composition */}
           <div className="relative lg:col-span-5">
-            {/* Decorative shape */}
-            <div className="absolute -inset-6 md:-inset-10 -z-0">
-              <div className="absolute top-1/2 left-0 h-40 w-40 -translate-y-1/2 rounded-full border border-skinmed-gold/30" />
-              <div className="absolute -bottom-4 right-4 h-28 w-28 rounded-full bg-skinmed-beige" />
+            {/* Decorative shape with GSAP parallax */}
+            <div className="absolute -inset-6 md:-inset-10 -z-0 pointer-events-none">
+              <div className="doctor-decor-1 absolute top-1/2 left-0 h-40 w-40 -translate-y-1/2 rounded-full border border-skinmed-gold/30 will-change-transform" />
+              <div className="doctor-decor-2 absolute -bottom-4 right-4 h-28 w-28 rounded-full bg-skinmed-beige will-change-transform" />
             </div>
 
             <MaskReveal className="relative z-10 aspect-[4/5] w-full max-w-[440px] mx-auto overflow-hidden rounded-[24px_24px_180px_180px] shadow-[0_30px_80px_-30px_rgba(23,23,23,0.35)] border border-skinmed-line/80">
@@ -68,10 +67,10 @@ export function DoctorSection() {
                     </div>
 
                     <div className="mt-5">
-                      <p className="font-serif text-2xl sm:text-3xl font-semibold text-skinmed-charcoal">
+                      <p className="font-sans text-xl sm:text-2xl font-semibold text-skinmed-charcoal">
                         {BRAND.doctorFull}
                       </p>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-skinmed-gold-dark">
+                      <p className="mt-1 text-xs font-normal uppercase tracking-[0.16em] text-skinmed-gold-dark">
                         {BRAND.doctorShort}
                       </p>
                     </div>
@@ -86,27 +85,35 @@ export function DoctorSection() {
           {/* Editorial text block */}
           <div className="lg:col-span-7">
             <Reveal>
-              <Eyebrow className="mb-6">Meet</Eyebrow>
+              <Eyebrow className="mb-4 sm:mb-5">Consultant Dermatologist</Eyebrow>
             </Reveal>
 
+            {/* Doctor name — Google Sans 600 */}
             <Reveal delay={0.08}>
-              <h2 className="section-heading text-[2.5rem] md:text-[3.5rem] font-semibold leading-[1.05] text-skinmed-charcoal">
-                {BRAND.doctorFull.split(" ")[0]}{" "}
-                <span className="italic text-skinmed-gold">{BRAND.doctorFull.split(" ").slice(1).join(" ")}</span>
+              <h2 className="font-sans text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] font-semibold leading-[1.05] text-skinmed-charcoal">
+                {BRAND.doctorFull}
               </h2>
             </Reveal>
 
-            <Reveal delay={0.16}>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-skinmed-gold-dark">
+            {/* Credentials — Google Sans 400 */}
+            <Reveal delay={0.14}>
+              <p className="mt-2 text-xs sm:text-[13px] font-normal uppercase tracking-[0.16em] text-skinmed-gold-dark">
                 {BRAND.doctorCredentials}
               </p>
             </Reveal>
 
-            <Reveal delay={0.24}>
-              <p className="mt-6 max-w-xl text-[15px] sm:text-base leading-relaxed text-skinmed-text font-medium">
-                A patient-first dermatologist dedicated to natural, sustainable outcomes —
-                combining medical dermatology, cosmetic expertise and laser technology into
-                one calm, considered experience.
+            {/* Main statement — Google Sans 500 */}
+            <Reveal delay={0.2}>
+              <blockquote className="mt-5 font-sans text-xl sm:text-2xl md:text-[1.5rem] font-medium leading-snug text-skinmed-charcoal">
+                &ldquo;Dedicated to natural, sustainable outcomes through clinical precision.&rdquo;
+              </blockquote>
+            </Reveal>
+
+            {/* Supporting information — Google Sans 400 */}
+            <Reveal delay={0.26}>
+              <p className="mt-4 max-w-xl text-[15px] sm:text-base leading-relaxed text-skinmed-text font-normal">
+                Combining medical dermatology, cosmetic expertise and advanced laser technology into
+                one calm, unhurried experience. Every protocol is individualized to your skin&apos;s unique biology.
               </p>
             </Reveal>
 
